@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Infografik & Slaid Presentation</title>
+<title>Penghasilan Infografik & Slaid AI</title>
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Font -->
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- Icons -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
@@ -32,15 +33,25 @@ body{
 
 .glass{
     background:rgba(15,23,42,0.72);
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(16px);
     border:1px solid rgba(255,255,255,0.06);
+}
+
+/* ===== HERO ===== */
+
+.hero-gradient{
+    background:
+    radial-gradient(circle at top left, rgba(20,184,166,0.25), transparent 30%),
+    radial-gradient(circle at top right, rgba(59,130,246,0.25), transparent 30%),
+    linear-gradient(135deg,#020617,#0f172a,#111827);
 }
 
 /* ===== SIDEBAR ===== */
 
 .sidebar{
-    width:290px;
-    transition:0.3s;
+    width:300px;
+    transition:0.35s ease;
+    box-shadow:0 0 60px rgba(0,0,0,0.45);
 }
 
 .nav-btn{
@@ -63,7 +74,7 @@ body{
 .nav-btn.active{
     background:rgba(20,184,166,0.12);
     color:#2dd4bf;
-    border:1px solid rgba(45,212,191,0.2);
+    border:1px solid rgba(45,212,191,0.18);
 }
 
 .nav-btn.active::before{
@@ -87,12 +98,19 @@ body{
 @keyframes fade{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(18px);
     }
     to{
         opacity:1;
         transform:translateY(0);
     }
+}
+
+/* ===== CARDS ===== */
+
+.card-hover:hover{
+    transform:translateY(-6px);
+    transition:0.3s;
 }
 
 /* ===== MOBILE ===== */
@@ -133,24 +151,18 @@ body{
 
 }
 
-/* ===== HERO ===== */
-
-.hero-gradient{
-    background:
-    radial-gradient(circle at top left, rgba(20,184,166,0.25), transparent 30%),
-    radial-gradient(circle at top right, rgba(59,130,246,0.25), transparent 30%),
-    linear-gradient(135deg,#020617,#0f172a,#111827);
-}
-
-.card-hover:hover{
-    transform:translateY(-5px);
-    transition:0.3s;
-}
-
 </style>
+
 </head>
 
 <body>
+
+<!-- MOBILE OVERLAY -->
+
+<div id="overlay"
+class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden"
+onclick="toggleSidebar()">
+</div>
 
 <!-- MOBILE TOPBAR -->
 
@@ -159,23 +171,27 @@ body{
     <div class="flex items-center gap-3">
 
         <div class="w-10 h-10 rounded-xl bg-teal-500/20 flex items-center justify-center text-teal-400">
-            <i class="fa-solid fa-microchip"></i>
+            <i class="fa-solid fa-brain"></i>
         </div>
 
         <div>
+
             <h3 class="font-bold text-sm">
                 MedTech AI
             </h3>
 
             <p class="text-[10px] text-slate-400">
-                AI Presentation System
+                AI Presentation
             </p>
+
         </div>
 
     </div>
 
     <button onclick="toggleSidebar()" class="text-xl text-white">
+
         <i class="fa-solid fa-bars"></i>
+
     </button>
 
 </div>
@@ -185,15 +201,25 @@ body{
 <aside id="sidebar"
 class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 
-    <!-- LOGO -->
+    <!-- HEADER -->
 
-    <div class="p-6 border-b border-slate-800">
+    <div class="p-6 border-b border-slate-800 relative">
+
+        <!-- CLOSE MOBILE -->
+
+        <button
+        onclick="toggleSidebar()"
+        class="absolute top-5 right-5 lg:hidden text-slate-400 text-xl">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
 
         <div class="flex items-center gap-4">
 
             <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
 
-                <i class="fa-solid fa-brain text-2xl"></i>
+                <i class="fa-solid fa-microchip text-2xl"></i>
 
             </div>
 
@@ -245,6 +271,8 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 
         <div class="space-y-3">
 
+            <!-- NAV 1 -->
+
             <button onclick="showSlide('slide1')" class="nav-btn active w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide1">
 
                 <div class="flex items-center gap-4">
@@ -254,6 +282,7 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                     </div>
 
                     <div>
+
                         <h4 class="font-semibold">
                             Cover
                         </h4>
@@ -261,11 +290,14 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                         <p class="text-xs text-slate-400">
                             Intro Presentation
                         </p>
+
                     </div>
 
                 </div>
 
             </button>
+
+            <!-- NAV 2 -->
 
             <button onclick="showSlide('slide2')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide2">
 
@@ -276,18 +308,22 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                     </div>
 
                     <div>
+
                         <h4 class="font-semibold">
                             Cabaran
                         </h4>
 
                         <p class="text-xs text-slate-400">
-                            Masalah biasa pejabat
+                            Masalah pejabat
                         </p>
+
                     </div>
 
                 </div>
 
             </button>
+
+            <!-- NAV 3 -->
 
             <button onclick="showSlide('slide3')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide3">
 
@@ -298,18 +334,22 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                     </div>
 
                     <div>
+
                         <h4 class="font-semibold">
                             NotebookLM
                         </h4>
 
                         <p class="text-xs text-slate-400">
-                            AI assistant
+                            AI Assistant
                         </p>
+
                     </div>
 
                 </div>
 
             </button>
+
+            <!-- NAV 4 -->
 
             <button onclick="showSlide('slide4')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide4">
 
@@ -320,6 +360,7 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                     </div>
 
                     <div>
+
                         <h4 class="font-semibold">
                             Workflow
                         </h4>
@@ -327,11 +368,14 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                         <p class="text-xs text-slate-400">
                             Cara penggunaan
                         </p>
+
                     </div>
 
                 </div>
 
             </button>
+
+            <!-- NAV 5 -->
 
             <button onclick="showSlide('slide5')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide5">
 
@@ -342,13 +386,41 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                     </div>
 
                     <div>
+
                         <h4 class="font-semibold">
                             Prompt
                         </h4>
 
                         <p class="text-xs text-slate-400">
-                            Design & aesthetic
+                            Design aesthetic
                         </p>
+
+                    </div>
+
+                </div>
+
+            </button>
+
+            <!-- NAV 6 -->
+
+            <button onclick="showSlide('slide6')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide6">
+
+                <div class="flex items-center gap-4">
+
+                    <div class="w-11 h-11 rounded-xl bg-orange-500/10 flex items-center justify-center">
+                        <i class="fa-solid fa-rocket text-orange-400"></i>
+                    </div>
+
+                    <div>
+
+                        <h4 class="font-semibold">
+                            Hands-On
+                        </h4>
+
+                        <p class="text-xs text-slate-400">
+                            Start practical session
+                        </p>
+
                     </div>
 
                 </div>
@@ -363,11 +435,11 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 
 <!-- MAIN -->
 
-<main class="main-content ml-[290px]">
+<main class="main-content ml-[300px]">
 
-<!-- ========================= -->
+<!-- ================================================= -->
 <!-- SLIDE 1 -->
-<!-- ========================= -->
+<!-- ================================================= -->
 
 <section id="slide1" class="slide active hero-gradient items-center justify-center p-8">
 
@@ -386,9 +458,12 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
         <h1 class="text-5xl lg:text-7xl font-black leading-tight">
 
             Penghasilan
+
             <span class="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+
                 Infografik &
                 Slaid AI
+
             </span>
 
         </h1>
@@ -402,6 +477,7 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
         <div class="mt-14 flex flex-wrap justify-center gap-4">
 
             <div class="glass px-6 py-4 rounded-2xl">
+
                 <h4 class="font-bold text-2xl text-teal-400">
                     2 MINIT
                 </h4>
@@ -409,9 +485,11 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                 <p class="text-sm text-slate-400">
                     Generate visual
                 </p>
+
             </div>
 
             <div class="glass px-6 py-4 rounded-2xl">
+
                 <h4 class="font-bold text-2xl text-blue-400">
                     AI BASED
                 </h4>
@@ -419,9 +497,11 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                 <p class="text-sm text-slate-400">
                     Powered by NotebookLM
                 </p>
+
             </div>
 
             <div class="glass px-6 py-4 rounded-2xl">
+
                 <h4 class="font-bold text-2xl text-purple-400">
                     MOBILE
                 </h4>
@@ -429,6 +509,7 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
                 <p class="text-sm text-slate-400">
                     Smartphone friendly
                 </p>
+
             </div>
 
         </div>
@@ -437,9 +518,9 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 
 </section>
 
-<!-- ========================= -->
+<!-- ================================================= -->
 <!-- SLIDE 2 -->
-<!-- ========================= -->
+<!-- ================================================= -->
 
 <section id="slide2" class="slide items-center p-8">
 
@@ -458,7 +539,9 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
             <div class="card-hover glass rounded-3xl p-8">
 
                 <div class="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400 text-3xl mb-6">
+
                     <i class="fa-regular fa-clock"></i>
+
                 </div>
 
                 <h3 class="text-2xl font-bold mb-4">
@@ -474,7 +557,9 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
             <div class="card-hover glass rounded-3xl p-8">
 
                 <div class="w-16 h-16 rounded-2xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 text-3xl mb-6">
+
                     <i class="fa-solid fa-palette"></i>
+
                 </div>
 
                 <h3 class="text-2xl font-bold mb-4">
@@ -490,7 +575,9 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
             <div class="card-hover glass rounded-3xl p-8">
 
                 <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-3xl mb-6">
+
                     <i class="fa-solid fa-file-lines"></i>
+
                 </div>
 
                 <h3 class="text-2xl font-bold mb-4">
@@ -509,9 +596,9 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 
 </section>
 
-<!-- ========================= -->
+<!-- ================================================= -->
 <!-- SLIDE 3 -->
-<!-- ========================= -->
+<!-- ================================================= -->
 
 <section id="slide3" class="slide items-center p-8">
 
@@ -565,9 +652,9 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 
 </section>
 
-<!-- ========================= -->
+<!-- ================================================= -->
 <!-- SLIDE 4 -->
-<!-- ========================= -->
+<!-- ================================================= -->
 
 <section id="slide4" class="slide items-center p-8">
 
@@ -645,9 +732,9 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 
 </section>
 
-<!-- ========================= -->
+<!-- ================================================= -->
 <!-- SLIDE 5 -->
-<!-- ========================= -->
+<!-- ================================================= -->
 
 <section id="slide5" class="slide items-center p-8">
 
@@ -713,13 +800,131 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 
 </section>
 
+<!-- ================================================= -->
+<!-- LAST SLIDE CTA -->
+<!-- ================================================= -->
+
+<section id="slide6" class="slide hero-gradient items-center justify-center p-8">
+
+    <div class="max-w-5xl mx-auto text-center">
+
+        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-8">
+
+            <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+
+            <span class="text-sm text-orange-300">
+                Hands-On Session
+            </span>
+
+        </div>
+
+        <h1 class="text-5xl lg:text-7xl font-black leading-tight">
+
+            Bertindak Sekarang
+
+            <span class="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+
+                Mulakan Hands-On AI
+
+            </span>
+
+        </h1>
+
+        <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
+
+            Proses teknikal tidak lagi menjadi penghalang.
+            Kini anda mempunyai pembantu rekaan visual AI yang pantas,
+            tepat dan percuma.
+
+        </p>
+
+        <!-- CTA -->
+
+        <div class="mt-14 flex flex-wrap justify-center gap-5">
+
+            <a href="https://notebooklm.google"
+            target="_blank"
+            class="px-10 py-5 rounded-2xl bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg hover:scale-105 transition shadow-2xl">
+
+                🚀 MULAKAN HANDS-ON NOTEBOOKLM
+
+            </a>
+
+            <a href="https://gemini.google.com"
+            target="_blank"
+            class="px-10 py-5 rounded-2xl glass font-bold text-lg hover:bg-white/10 transition">
+
+                ✨ BUKA GEMINI
+
+            </a>
+
+        </div>
+
+        <!-- QUICK STEPS -->
+
+        <div class="grid lg:grid-cols-3 gap-6 mt-16 text-left">
+
+            <div class="glass rounded-3xl p-6">
+
+                <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl mb-5">
+                    1
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Upload Dokumen
+                </h3>
+
+                <p class="text-slate-400">
+                    PDF, Google Docs, Website atau YouTube.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-6">
+
+                <div class="w-14 h-14 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-400 text-2xl mb-5">
+                    2
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Generate Visual
+                </h3>
+
+                <p class="text-slate-400">
+                    Pilih infographic atau slide deck.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-6">
+
+                <div class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl mb-5">
+                    3
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Export & Present
+                </h3>
+
+                <p class="text-slate-400">
+                    Export ke PowerPoint dan terus bentang.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 </main>
 
 <script>
 
 function showSlide(slideId){
 
-    // remove active slide
+    // remove active slides
 
     document.querySelectorAll('.slide').forEach(slide=>{
         slide.classList.remove('active');
@@ -735,20 +940,32 @@ function showSlide(slideId){
         btn.classList.remove('active');
     });
 
-    // active nav
+    // activate nav
 
     document.getElementById('btn-'+slideId).classList.add('active');
 
-    // mobile close sidebar
+    // mobile auto close
 
     if(window.innerWidth < 1024){
+
         document.getElementById('sidebar').classList.remove('show');
+
+        document.getElementById('overlay').classList.add('hidden');
+
     }
 
 }
 
 function toggleSidebar(){
-    document.getElementById('sidebar').classList.toggle('show');
+
+    const sidebar=document.getElementById('sidebar');
+
+    const overlay=document.getElementById('overlay');
+
+    sidebar.classList.toggle('show');
+
+    overlay.classList.toggle('hidden');
+
 }
 
 </script>
