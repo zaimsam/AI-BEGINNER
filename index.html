@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Presentation System</title>
+<title>Penghasilan Infografik & Slaid AI</title>
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -46,7 +46,7 @@ body{
     linear-gradient(135deg,#020617,#0f172a,#111827);
 }
 
-/* ===== NAV ===== */
+/* ===== NAV BUTTON ===== */
 
 .nav-btn{
     position:relative;
@@ -213,14 +213,6 @@ onclick="toggleMobileMenu()">
 
                 </button>
 
-                <button onclick="showSlide('slide7')"
-                id="btn-slide7"
-                class="nav-btn px-5 py-3 rounded-2xl text-sm font-semibold transition">
-
-                    Etika AI
-
-                </button>
-
             </nav>
 
             <!-- MOBILE BUTTON -->
@@ -296,14 +288,6 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
         </button>
 
-        <button onclick="showSlide('slide7')"
-        id="mobile-btn-slide7"
-        class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition">
-
-            🔒 Etika AI
-
-        </button>
-
     </div>
 
 </div>
@@ -347,9 +331,49 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
         <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
 
-            Hasilkan visual profesional dan slaid pembentangan berkualiti tinggi menggunakan AI dalam masa beberapa minit sahaja.
+            Hasilkan visual profesional, infografik moden dan slaid pembentangan berkualiti tinggi menggunakan AI dalam masa beberapa minit sahaja.
 
         </p>
+
+        <div class="mt-14 flex flex-wrap justify-center gap-4">
+
+            <div class="glass px-6 py-4 rounded-2xl">
+
+                <h4 class="font-bold text-2xl text-teal-400">
+                    2 MINIT
+                </h4>
+
+                <p class="text-sm text-slate-400">
+                    Generate visual
+                </p>
+
+            </div>
+
+            <div class="glass px-6 py-4 rounded-2xl">
+
+                <h4 class="font-bold text-2xl text-blue-400">
+                    AI BASED
+                </h4>
+
+                <p class="text-sm text-slate-400">
+                    Powered by NotebookLM
+                </p>
+
+            </div>
+
+            <div class="glass px-6 py-4 rounded-2xl">
+
+                <h4 class="font-bold text-2xl text-purple-400">
+                    MOBILE
+                </h4>
+
+                <p class="text-sm text-slate-400">
+                    Smartphone friendly
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -367,52 +391,62 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
             Cabaran Biasa
         </h2>
 
-        <div class="grid lg:grid-cols-3 gap-8 mt-12">
+        <p class="text-slate-400 text-xl mb-12">
+            Masalah yang sering dihadapi semasa menyediakan pembentangan.
+        </p>
+
+        <div class="grid lg:grid-cols-3 gap-8">
 
             <div class="card-hover glass rounded-3xl p-8">
 
-                <div class="text-red-400 text-4xl mb-5">
+                <div class="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400 text-3xl mb-6">
+
                     <i class="fa-regular fa-clock"></i>
+
                 </div>
 
-                <h3 class="text-2xl font-bold mb-3">
+                <h3 class="text-2xl font-bold mb-4">
                     Masa Terbuang
                 </h3>
 
-                <p class="text-slate-400">
-                    Mengambil masa terlalu lama untuk siapkan slaid.
+                <p class="text-slate-400 leading-relaxed">
+                    Mengambil masa terlalu lama untuk siapkan slaid dan visual.
                 </p>
 
             </div>
 
             <div class="card-hover glass rounded-3xl p-8">
 
-                <div class="text-yellow-400 text-4xl mb-5">
+                <div class="w-16 h-16 rounded-2xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 text-3xl mb-6">
+
                     <i class="fa-solid fa-palette"></i>
+
                 </div>
 
-                <h3 class="text-2xl font-bold mb-3">
+                <h3 class="text-2xl font-bold mb-4">
                     Tiada Skill Design
                 </h3>
 
-                <p class="text-slate-400">
-                    Sukar hasilkan visual profesional.
+                <p class="text-slate-400 leading-relaxed">
+                    Sukar hasilkan visual yang moden dan profesional.
                 </p>
 
             </div>
 
             <div class="card-hover glass rounded-3xl p-8">
 
-                <div class="text-blue-400 text-4xl mb-5">
+                <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-3xl mb-6">
+
                     <i class="fa-solid fa-file-lines"></i>
+
                 </div>
 
-                <h3 class="text-2xl font-bold mb-3">
-                    Data Padat
+                <h3 class="text-2xl font-bold mb-4">
+                    Data Terlalu Padat
                 </h3>
 
-                <p class="text-slate-400">
-                    Audiens cepat bosan dengan terlalu banyak teks.
+                <p class="text-slate-400 leading-relaxed">
+                    Audiens cepat bosan bila terlalu banyak teks.
                 </p>
 
             </div>
@@ -597,6 +631,30 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
             </div>
 
+            <div class="glass rounded-3xl p-8">
+
+                <h3 class="text-2xl font-bold mb-4">
+                    Whiteboard
+                </h3>
+
+                <code class="text-blue-400 text-lg">
+                    Classic sketch noting style
+                </code>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+
+                <h3 class="text-2xl font-bold mb-4">
+                    Kawaii
+                </h3>
+
+                <code class="text-blue-400 text-lg">
+                    Kawaii pastel style
+                </code>
+
+            </div>
+
         </div>
 
     </div>
@@ -623,14 +681,25 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
         <h1 class="text-5xl lg:text-7xl font-black leading-tight">
 
-            Mulakan
+            Bertindak Sekarang
+
             <span class="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
 
-                Hands-On AI
+                Mulakan Hands-On AI
 
             </span>
 
         </h1>
+
+        <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
+
+            Proses teknikal tidak lagi menjadi penghalang.
+            Kini anda mempunyai pembantu rekaan visual AI yang pantas,
+            tepat dan percuma.
+
+        </p>
+
+        <!-- CTA -->
 
         <div class="mt-14 flex flex-wrap justify-center gap-5">
 
@@ -638,7 +707,7 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
             target="_blank"
             class="px-10 py-5 rounded-2xl bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg hover:scale-105 transition shadow-2xl">
 
-                🚀 MULAKAN NOTEBOOKLM
+                🚀 MULAKAN HANDS-ON NOTEBOOKLM
 
             </a>
 
@@ -652,255 +721,59 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
         </div>
 
-    </div>
+        <!-- QUICK STEPS -->
 
-</section>
+        <div class="grid lg:grid-cols-3 gap-6 mt-16 text-left">
 
-<!-- ================================================= -->
-<!-- TOPIK 2 -->
-<!-- ================================================= -->
+            <div class="glass rounded-3xl p-6">
 
-<section id="slide7" class="slide hero-gradient items-center justify-center p-8">
-
-    <div class="max-w-6xl mx-auto text-center">
-
-        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-8">
-
-            <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
-
-            <span class="text-sm text-red-300">
-                Topik 2 : Etika & Privasi AI
-            </span>
-
-        </div>
-
-        <h1 class="text-5xl lg:text-7xl font-black leading-tight">
-
-            Etika &
-            <span class="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-
-                Privasi AI
-
-            </span>
-
-        </h1>
-
-        <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
-
-            Penggunaan AI secara profesional,
-            selamat dan bertanggungjawab di tempat kerja.
-
-        </p>
-
-    </div>
-
-</section>
-
-<!-- ================================================= -->
-<!-- SLIDE 8 -->
-<!-- ================================================= -->
-
-<section id="slide8" class="slide items-center p-8">
-
-    <div class="max-w-6xl mx-auto w-full">
-
-        <h2 class="text-5xl font-black mb-12">
-            Risiko Penggunaan AI
-        </h2>
-
-        <div class="grid lg:grid-cols-2 gap-8">
-
-            <div class="glass rounded-3xl p-8">
-
-                <div class="text-red-400 text-4xl mb-5">
-                    <i class="fa-solid fa-user-secret"></i>
+                <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl mb-5">
+                    1
                 </div>
 
-                <h3 class="text-2xl font-bold mb-4">
-                    Data Sulit Bocor
+                <h3 class="text-2xl font-bold mb-3">
+                    Upload Dokumen
                 </h3>
 
                 <p class="text-slate-400">
-                    Maklumat pesakit dan organisasi boleh terdedah.
+                    PDF, Google Docs, Website atau YouTube.
                 </p>
 
             </div>
 
-            <div class="glass rounded-3xl p-8">
+            <div class="glass rounded-3xl p-6">
 
-                <div class="text-orange-400 text-4xl mb-5">
-                    <i class="fa-solid fa-circle-xmark"></i>
+                <div class="w-14 h-14 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-400 text-2xl mb-5">
+                    2
                 </div>
 
-                <h3 class="text-2xl font-bold mb-4">
-                    Jawapan Salah
+                <h3 class="text-2xl font-bold mb-3">
+                    Generate Visual
                 </h3>
 
                 <p class="text-slate-400">
-                    AI boleh menghasilkan fakta tidak tepat.
+                    Pilih infographic atau slide deck.
                 </p>
 
             </div>
 
-            <div class="glass rounded-3xl p-8">
+            <div class="glass rounded-3xl p-6">
 
-                <div class="text-yellow-400 text-4xl mb-5">
-                    <i class="fa-solid fa-share-nodes"></i>
+                <div class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl mb-5">
+                    3
                 </div>
 
-                <h3 class="text-2xl font-bold mb-4">
-                    Maklumat Palsu
+                <h3 class="text-2xl font-bold mb-3">
+                    Export & Present
                 </h3>
 
                 <p class="text-slate-400">
-                    Risiko penyebaran berita tidak sahih.
-                </p>
-
-            </div>
-
-            <div class="glass rounded-3xl p-8">
-
-                <div class="text-purple-400 text-4xl mb-5">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
-
-                <h3 class="text-2xl font-bold mb-4">
-                    Ketergantungan AI
-                </h3>
-
-                <p class="text-slate-400">
-                    Terlalu bergantung kepada AI untuk keputusan kerja.
+                    Export ke PowerPoint dan terus bentang.
                 </p>
 
             </div>
 
         </div>
-
-    </div>
-
-</section>
-
-<!-- ================================================= -->
-<!-- SLIDE 9 -->
-<!-- ================================================= -->
-
-<section id="slide9" class="slide items-center p-8">
-
-    <div class="max-w-5xl mx-auto w-full">
-
-        <h2 class="text-5xl font-black mb-12">
-            Etika Penggunaan AI
-        </h2>
-
-        <div class="space-y-8">
-
-            <div class="glass rounded-3xl p-8 flex gap-6">
-
-                <div class="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400 text-2xl">
-
-                    <i class="fa-solid fa-scale-balanced"></i>
-
-                </div>
-
-                <div>
-
-                    <h3 class="text-2xl font-bold mb-3">
-                        Gunakan AI Secara Jujur
-                    </h3>
-
-                    <p class="text-slate-400 text-lg">
-                        Elakkan manipulasi dan penyalahgunaan maklumat.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="glass rounded-3xl p-8 flex gap-6">
-
-                <div class="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl">
-
-                    <i class="fa-solid fa-file-circle-check"></i>
-
-                </div>
-
-                <div>
-
-                    <h3 class="text-2xl font-bold mb-3">
-                        Semak Hasil AI
-                    </h3>
-
-                    <p class="text-slate-400 text-lg">
-                        Jangan terus percaya semua output AI.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="glass rounded-3xl p-8 flex gap-6">
-
-                <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl">
-
-                    <i class="fa-solid fa-lock"></i>
-
-                </div>
-
-                <div>
-
-                    <h3 class="text-2xl font-bold mb-3">
-                        Lindungi Privasi
-                    </h3>
-
-                    <p class="text-slate-400 text-lg">
-                        Jangan masukkan data sensitif ke dalam AI.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================================================= -->
-<!-- SLIDE 10 -->
-<!-- ================================================= -->
-
-<section id="slide10" class="slide hero-gradient items-center justify-center p-8">
-
-    <div class="max-w-5xl mx-auto text-center">
-
-        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-8">
-
-            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-
-            <span class="text-sm text-green-300">
-                Kesimpulan
-            </span>
-
-        </div>
-
-        <h1 class="text-5xl lg:text-7xl font-black leading-tight">
-
-            Gunakan AI
-            <span class="bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
-
-                Secara Selamat
-
-            </span>
-
-        </h1>
-
-        <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
-
-            AI memberi banyak manfaat,
-            tetapi etika dan privasi mesti sentiasa dijaga.
-
-        </p>
 
     </div>
 
@@ -932,7 +805,7 @@ function showSlide(slideId){
         btn.classList.remove('active');
     });
 
-    // desktop nav
+    // activate desktop nav
 
     const desktopBtn=document.getElementById('btn-'+slideId);
 
@@ -940,7 +813,7 @@ function showSlide(slideId){
         desktopBtn.classList.add('active');
     }
 
-    // mobile nav
+    // activate mobile nav
 
     const mobileBtn=document.getElementById('mobile-btn-'+slideId);
 
