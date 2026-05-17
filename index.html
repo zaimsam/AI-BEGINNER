@@ -7,109 +7,113 @@
 
 <title>Penghasilan Infografik & Slaid AI</title>
 
-<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
 
-*{
-    scroll-behavior:smooth;
+* {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:'Inter',sans-serif;
-    background:#020617;
-    color:white;
-    overflow:hidden;
+body {
+    font-family: 'Inter', sans-serif;
+    background: #020617;
+    color: white;
+    overflow: hidden;
 }
 
 /* ===== GLASS ===== */
 
-.glass{
-    background:rgba(15,23,42,0.72);
-    backdrop-filter:blur(16px);
-    border:1px solid rgba(255,255,255,0.06);
+.glass {
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* ===== HERO ===== */
 
-.hero-gradient{
+.hero-gradient {
     background:
-    radial-gradient(circle at top left, rgba(20,184,166,0.25), transparent 30%),
-    radial-gradient(circle at top right, rgba(59,130,246,0.25), transparent 30%),
-    linear-gradient(135deg,#020617,#0f172a,#111827);
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.25), transparent 30%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.25), transparent 30%),
+    linear-gradient(135deg, #020617, #0f172a, #111827);
 }
 
 /* ===== NAV BUTTON ===== */
 
-.nav-btn{
-    position:relative;
-    overflow:hidden;
-    color:#cbd5e1;
+.nav-btn {
+    position: relative;
+    overflow: hidden;
+    color: #cbd5e1;
+    white-space: nowrap;
 }
 
-.nav-btn.active{
-    background:rgba(20,184,166,0.12);
-    color:#2dd4bf;
-    border:1px solid rgba(45,212,191,0.18);
+.nav-btn.active {
+    background: rgba(20, 184, 166, 0.12);
+    color: #2dd4bf;
+    border: 1px solid rgba(45, 212, 191, 0.18);
+}
+
+/* Hide scrollbar for nav */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* ===== SLIDES ===== */
 
-.slide{
-    min-height:100vh;
-    width:100%;
-    display:none;
-    overflow-y:auto;
+.slide {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    overflow-y: auto;
 }
 
-.slide.active{
-    display:flex;
-    animation:fade 0.4s ease;
+.slide.active {
+    display: flex;
+    animation: fade 0.4s ease;
 }
 
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(18px);
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 /* ===== CARD ===== */
 
-.card-hover:hover{
-    transform:translateY(-6px);
-    transition:0.3s;
+.card-hover:hover {
+    transform: translateY(-6px);
+    transition: 0.3s;
 }
 
 /* ===== MAIN ===== */
 
-.main-content{
-    padding-top:80px;
+.main-content {
+    padding-top: 80px;
 }
 
 /* ===== MOBILE ===== */
 
-@media(max-width:1024px){
-
-    body{
-        overflow:auto;
+@media(max-width: 1024px) {
+    body {
+        overflow: auto;
     }
-
-    .slide{
-        padding-top:100px;
+    .slide {
+        padding-top: 100px;
     }
-
 }
 
 </style>
@@ -118,18 +122,10 @@ body{
 
 <body>
 
-<!-- ================================================= -->
-<!-- MOBILE OVERLAY -->
-<!-- ================================================= -->
-
 <div id="overlay"
 class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden"
 onclick="toggleMobileMenu()">
 </div>
-
-<!-- ================================================= -->
-<!-- HEADER -->
-<!-- ================================================= -->
 
 <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800">
 
@@ -137,9 +133,7 @@ onclick="toggleMobileMenu()">
 
         <div class="h-20 flex items-center justify-between">
 
-            <!-- LOGO -->
-
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-4 shrink-0 pr-4">
 
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
 
@@ -154,72 +148,34 @@ onclick="toggleMobileMenu()">
                     </h2>
 
                     <p class="text-xs text-slate-400">
-                        AI Visual Presentation System
+                        AI Visual Presentation
                     </p>
 
                 </div>
 
             </div>
 
-            <!-- DESKTOP NAV -->
+            <nav class="hidden lg:flex items-center gap-2 overflow-x-auto scrollbar-hide py-2">
 
-            <nav class="hidden lg:flex items-center gap-3">
-
-                <button onclick="showSlide('slide1')"
-                id="btn-slide1"
-                class="nav-btn active px-5 py-3 rounded-2xl text-sm font-semibold transition">
-
-                    Cover
-
-                </button>
-
-                <button onclick="showSlide('slide2')"
-                id="btn-slide2"
-                class="nav-btn px-5 py-3 rounded-2xl text-sm font-semibold transition">
-
-                    Cabaran
-
-                </button>
-
-                <button onclick="showSlide('slide3')"
-                id="btn-slide3"
-                class="nav-btn px-5 py-3 rounded-2xl text-sm font-semibold transition">
-
-                    NotebookLM
-
-                </button>
-
-                <button onclick="showSlide('slide4')"
-                id="btn-slide4"
-                class="nav-btn px-5 py-3 rounded-2xl text-sm font-semibold transition">
-
-                    Workflow
-
-                </button>
-
-                <button onclick="showSlide('slide5')"
-                id="btn-slide5"
-                class="nav-btn px-5 py-3 rounded-2xl text-sm font-semibold transition">
-
-                    Prompt
-
-                </button>
-
-                <button onclick="showSlide('slide6')"
-                id="btn-slide6"
-                class="px-5 py-3 rounded-2xl text-sm font-bold transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black">
-
-                    Hands-On
-
-                </button>
+                <button onclick="showSlide('slide1')" id="btn-slide1" class="nav-btn active px-4 py-2 rounded-2xl text-sm font-semibold transition">Cover</button>
+                <button onclick="showSlide('slide2')" id="btn-slide2" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Cabaran</button>
+                <button onclick="showSlide('slide3')" id="btn-slide3" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">NotebookLM</button>
+                <button onclick="showSlide('slide4')" id="btn-slide4" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Workflow</button>
+                <button onclick="showSlide('slide5')" id="btn-slide5" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Prompt</button>
+                <button onclick="showSlide('slide6')" id="btn-slide6" class="px-4 py-2 rounded-2xl text-sm font-bold transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black whitespace-nowrap">Hands-On</button>
+                
+                <div class="w-px h-6 bg-slate-700 mx-1"></div> <button onclick="showSlide('slide7')" id="btn-slide7" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Topik 2</button>
+                <button onclick="showSlide('slide8')" id="btn-slide8" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Objektif</button>
+                <button onclick="showSlide('slide9')" id="btn-slide9" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Risiko</button>
+                <button onclick="showSlide('slide10')" id="btn-slide10" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Etika</button>
+                <button onclick="showSlide('slide11')" id="btn-slide11" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Privasi</button>
+                <button onclick="showSlide('slide12')" id="btn-slide12" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Rumusan</button>
 
             </nav>
 
-            <!-- MOBILE BUTTON -->
-
             <button
             onclick="toggleMobileMenu()"
-            class="lg:hidden text-2xl text-white">
+            class="lg:hidden text-2xl text-white shrink-0 pl-4">
 
                 <i class="fa-solid fa-bars"></i>
 
@@ -231,76 +187,32 @@ onclick="toggleMobileMenu()">
 
 </header>
 
-<!-- ================================================= -->
-<!-- MOBILE MENU -->
-<!-- ================================================= -->
-
 <div id="mobileMenu"
-class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
+class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden max-h-[80vh] overflow-y-auto">
 
-    <div class="space-y-3">
+    <div class="space-y-2">
 
-        <button onclick="showSlide('slide1')"
-        id="mobile-btn-slide1"
-        class="nav-btn active w-full text-left px-5 py-4 rounded-2xl transition">
+        <div class="text-xs font-bold text-slate-500 uppercase px-2 mb-2">Topik 1: Pengenalan</div>
+        <button onclick="showSlide('slide1')" id="mobile-btn-slide1" class="nav-btn active w-full text-left px-5 py-3 rounded-2xl transition">🏠 Cover</button>
+        <button onclick="showSlide('slide2')" id="mobile-btn-slide2" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">📊 Cabaran</button>
+        <button onclick="showSlide('slide3')" id="mobile-btn-slide3" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">🧠 NotebookLM</button>
+        <button onclick="showSlide('slide4')" id="mobile-btn-slide4" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">⚙️ Workflow</button>
+        <button onclick="showSlide('slide5')" id="mobile-btn-slide5" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">🎨 Prompt</button>
+        <button onclick="showSlide('slide6')" id="mobile-btn-slide6" class="w-full text-left px-5 py-3 rounded-2xl transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-bold">🚀 Hands-On</button>
 
-            🏠 Cover
-
-        </button>
-
-        <button onclick="showSlide('slide2')"
-        id="mobile-btn-slide2"
-        class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition">
-
-            📊 Cabaran
-
-        </button>
-
-        <button onclick="showSlide('slide3')"
-        id="mobile-btn-slide3"
-        class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition">
-
-            🧠 NotebookLM
-
-        </button>
-
-        <button onclick="showSlide('slide4')"
-        id="mobile-btn-slide4"
-        class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition">
-
-            ⚙️ Workflow
-
-        </button>
-
-        <button onclick="showSlide('slide5')"
-        id="mobile-btn-slide5"
-        class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition">
-
-            🎨 Prompt
-
-        </button>
-
-        <button onclick="showSlide('slide6')"
-        id="mobile-btn-slide6"
-        class="w-full text-left px-5 py-4 rounded-2xl transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-bold">
-
-            🚀 Hands-On
-
-        </button>
+        <div class="text-xs font-bold text-slate-500 uppercase px-2 mt-4 mb-2">Topik 2: Etika & Privasi</div>
+        <button onclick="showSlide('slide7')" id="mobile-btn-slide7" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">🛡️ Cover Topik 2</button>
+        <button onclick="showSlide('slide8')" id="mobile-btn-slide8" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">🎯 Objektif</button>
+        <button onclick="showSlide('slide9')" id="mobile-btn-slide9" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">⚠️ Risiko</button>
+        <button onclick="showSlide('slide10')" id="mobile-btn-slide10" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">⚖️ Etika</button>
+        <button onclick="showSlide('slide11')" id="mobile-btn-slide11" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">🔒 Privasi</button>
+        <button onclick="showSlide('slide12')" id="mobile-btn-slide12" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">✅ Rumusan</button>
 
     </div>
 
 </div>
 
-<!-- ================================================= -->
-<!-- MAIN -->
-<!-- ================================================= -->
-
 <main class="main-content">
-
-<!-- ================================================= -->
-<!-- SLIDE 1 -->
-<!-- ================================================= -->
 
 <section id="slide1" class="slide active hero-gradient items-center justify-center p-8">
 
@@ -379,10 +291,6 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
 </section>
 
-<!-- ================================================= -->
-<!-- SLIDE 2 -->
-<!-- ================================================= -->
-
 <section id="slide2" class="slide items-center p-8">
 
     <div class="max-w-6xl mx-auto w-full">
@@ -457,10 +365,6 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
 </section>
 
-<!-- ================================================= -->
-<!-- SLIDE 3 -->
-<!-- ================================================= -->
-
 <section id="slide3" class="slide items-center p-8">
 
     <div class="max-w-5xl mx-auto w-full">
@@ -512,10 +416,6 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
     </div>
 
 </section>
-
-<!-- ================================================= -->
-<!-- SLIDE 4 -->
-<!-- ================================================= -->
 
 <section id="slide4" class="slide items-center p-8">
 
@@ -593,10 +493,6 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
 </section>
 
-<!-- ================================================= -->
-<!-- SLIDE 5 -->
-<!-- ================================================= -->
-
 <section id="slide5" class="slide items-center p-8">
 
     <div class="max-w-6xl mx-auto w-full">
@@ -661,10 +557,6 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
 </section>
 
-<!-- ================================================= -->
-<!-- SLIDE 6 CTA -->
-<!-- ================================================= -->
-
 <section id="slide6" class="slide hero-gradient items-center justify-center p-8">
 
     <div class="max-w-5xl mx-auto text-center">
@@ -699,8 +591,6 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
         </p>
 
-        <!-- CTA -->
-
         <div class="mt-14 flex flex-wrap justify-center gap-5">
 
             <a href="https://notebooklm.google"
@@ -720,8 +610,6 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
             </a>
 
         </div>
-
-        <!-- QUICK STEPS -->
 
         <div class="grid lg:grid-cols-3 gap-6 mt-16 text-left">
 
@@ -779,11 +667,471 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
 </section>
 
-</main>
+<section id="slide7" class="slide hero-gradient items-center justify-center p-8">
 
-<!-- ================================================= -->
-<!-- JAVASCRIPT -->
-<!-- ================================================= -->
+    <div class="max-w-6xl mx-auto text-center">
+
+        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-8">
+
+            <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
+
+            <span class="text-sm text-red-300">
+                TOPIK 2 • ETIKA & PRIVASI AI
+            </span>
+
+        </div>
+
+        <h1 class="text-5xl lg:text-7xl font-black leading-tight">
+
+            Etika &
+            <span class="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+
+                Privasi AI
+
+            </span>
+
+        </h1>
+
+        <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
+
+            Penggunaan AI Secara Profesional,
+            Selamat dan Bertanggungjawab
+            Untuk Pekerja Pejabat.
+
+        </p>
+
+        <div class="mt-16 flex flex-wrap justify-center gap-5">
+
+            <div class="glass rounded-3xl px-8 py-6">
+
+                <h3 class="text-2xl font-bold text-red-400">
+                    Etika
+                </h3>
+
+            </div>
+
+            <div class="glass rounded-3xl px-8 py-6">
+
+                <h3 class="text-2xl font-bold text-orange-400">
+                    Privasi
+                </h3>
+
+            </div>
+
+            <div class="glass rounded-3xl px-8 py-6">
+
+                <h3 class="text-2xl font-bold text-blue-400">
+                    Keselamatan
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="slide8" class="slide items-center p-8">
+
+    <div class="max-w-6xl mx-auto w-full">
+
+        <h2 class="text-5xl font-black mb-6">
+            Objektif Kursus
+        </h2>
+
+        <p class="text-slate-400 text-xl mb-12">
+            Apa yang peserta akan pelajari dalam topik ini.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+
+            <div class="glass rounded-3xl p-8">
+
+                <div class="text-red-400 text-4xl mb-5">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Memahami Etika AI
+                </h3>
+
+                <p class="text-slate-400">
+                    Prinsip penggunaan AI secara profesional dan bertanggungjawab.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+
+                <div class="text-orange-400 text-4xl mb-5">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Risiko Privasi Data
+                </h3>
+
+                <p class="text-slate-400">
+                    Mengenal pasti risiko kebocoran maklumat dan data.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+
+                <div class="text-blue-400 text-4xl mb-5">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Keselamatan AI
+                </h3>
+
+                <p class="text-slate-400">
+                    Cara menggunakan AI dengan lebih selamat.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+
+                <div class="text-teal-400 text-4xl mb-5">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Amalan Terbaik
+                </h3>
+
+                <p class="text-slate-400">
+                    Penggunaan AI secara beretika di tempat kerja.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="slide9" class="slide items-center p-8">
+
+    <div class="max-w-6xl mx-auto w-full">
+
+        <h2 class="text-5xl font-black mb-6">
+            Risiko Penggunaan AI
+        </h2>
+
+        <p class="text-slate-400 text-xl mb-12">
+            Risiko utama penggunaan AI di tempat kerja.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+
+            <div class="glass rounded-3xl p-8 border border-red-500/20">
+
+                <div class="text-red-400 text-4xl mb-5">
+                    <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4">
+                    Data Sulit Bocor
+                </h3>
+
+                <p class="text-slate-400">
+                    Maklumat organisasi atau pesakit boleh terdedah.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8 border border-orange-500/20">
+
+                <div class="text-orange-400 text-4xl mb-5">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4">
+                    Jawapan Tidak Tepat
+                </h3>
+
+                <p class="text-slate-400">
+                    AI boleh memberikan maklumat yang salah.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8 border border-yellow-500/20">
+
+                <div class="text-yellow-400 text-4xl mb-5">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4">
+                    Penyebaran Maklumat Palsu
+                </h3>
+
+                <p class="text-slate-400">
+                    Risiko menyebarkan fakta tanpa semakan.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8 border border-purple-500/20">
+
+                <div class="text-purple-400 text-4xl mb-5">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4">
+                    Ketergantungan AI
+                </h3>
+
+                <p class="text-slate-400">
+                    Pengguna terlalu bergantung kepada AI.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="slide10" class="slide items-center p-8">
+
+    <div class="max-w-5xl mx-auto w-full">
+
+        <h2 class="text-5xl font-black mb-12">
+            Etika Penggunaan AI
+        </h2>
+
+        <div class="space-y-8">
+
+            <div class="glass rounded-3xl p-8 flex gap-6">
+
+                <div class="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400 text-2xl">
+
+                    <i class="fa-solid fa-scale-balanced"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 class="text-2xl font-bold mb-3">
+                        Gunakan AI Secara Jujur
+                    </h3>
+
+                    <p class="text-slate-400 text-lg">
+                        Elakkan manipulasi dan penyalahgunaan maklumat.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8 flex gap-6">
+
+                <div class="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl">
+
+                    <i class="fa-solid fa-file-circle-check"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 class="text-2xl font-bold mb-3">
+                        Semak Semua Hasil AI
+                    </h3>
+
+                    <p class="text-slate-400 text-lg">
+                        Jangan terus percaya semua output AI.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8 flex gap-6">
+
+                <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 class="text-2xl font-bold mb-3">
+                        Lindungi Privasi
+                    </h3>
+
+                    <p class="text-slate-400 text-lg">
+                        Jangan masukkan data sensitif ke dalam AI.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="slide11" class="slide items-center p-8">
+
+    <div class="max-w-6xl mx-auto w-full">
+
+        <h2 class="text-5xl font-black mb-6">
+            Privasi & Keselamatan Data
+        </h2>
+
+        <p class="text-slate-400 text-xl mb-12">
+            Perkara penting yang wajib dijaga.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+
+            <div class="glass rounded-3xl p-8">
+
+                <div class="text-red-400 text-4xl mb-5">
+                    <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Jangan Upload Data Sensitif
+                </h3>
+
+                <p class="text-slate-400">
+                    Elakkan memasukkan data pesakit atau pelanggan.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+
+                <div class="text-blue-400 text-4xl mb-5">
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Guna Akaun Rasmi
+                </h3>
+
+                <p class="text-slate-400">
+                    Gunakan akaun organisasi yang sah.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+
+                <div class="text-orange-400 text-4xl mb-5">
+                    <i class="fa-solid fa-file-shield"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Elak Kongsi Dokumen Sulit
+                </h3>
+
+                <p class="text-slate-400">
+                    Pastikan dokumen organisasi dilindungi.
+                </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+
+                <div class="text-teal-400 text-4xl mb-5">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-3">
+                    Kata Laluan Selamat
+                </h3>
+
+                <p class="text-slate-400">
+                    Gunakan password yang kuat dan unik.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="slide12" class="slide hero-gradient items-center justify-center p-8">
+
+    <div class="max-w-5xl mx-auto text-center">
+
+        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-8">
+
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+
+            <span class="text-sm text-green-300">
+                Kesimpulan
+            </span>
+
+        </div>
+
+        <h1 class="text-5xl lg:text-7xl font-black leading-tight">
+
+            Gunakan AI
+            <span class="bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
+
+                Secara Selamat
+
+            </span>
+
+        </h1>
+
+        <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
+
+            AI memberi banyak manfaat,
+            tetapi etika dan privasi
+            mesti sentiasa dijaga.
+
+        </p>
+
+        <div class="mt-16 flex flex-wrap justify-center gap-6">
+
+            <div class="glass rounded-3xl px-8 py-6">
+
+                <h3 class="text-2xl font-bold text-green-400">
+                    Etika
+                </h3>
+
+            </div>
+
+            <div class="glass rounded-3xl px-8 py-6">
+
+                <h3 class="text-2xl font-bold text-blue-400">
+                    Privasi
+                </h3>
+
+            </div>
+
+            <div class="glass rounded-3xl px-8 py-6">
+
+                <h3 class="text-2xl font-bold text-orange-400">
+                    Keselamatan
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
 
 <script>
 
