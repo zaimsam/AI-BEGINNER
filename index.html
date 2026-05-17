@@ -4,158 +4,410 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penghasilan Infografik & Slaid AI</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body{
+            font-family: 'Inter', sans-serif;
+            background:#020617;
+            color:white;
+        }
+
+        .glass{
+            background: rgba(15,23,42,0.75);
+            backdrop-filter: blur(10px);
+            border:1px solid rgba(255,255,255,0.08);
+        }
+
+        .gradient{
+            background: linear-gradient(135deg,#0f172a,#1e3a8a,#0d9488);
+        }
+
+        .card:hover{
+            transform: translateY(-5px);
+            transition:0.3s;
+        }
+
+        .tab-content{
+            display:none;
+        }
+
+        .tab-content.active{
+            display:block;
+            animation:fade .3s ease;
+        }
+
+        @keyframes fade{
+            from{
+                opacity:0;
+                transform:translateY(10px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 leading-relaxed">
 
-    <!-- Hero Section -->
-    <header class="bg-blue-600 text-white py-16 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">PENGHASILAN INFOGRAFIK DAN SLAID SECARA PANTAS MENGGUNAKAN AI</h1>
-            <p class="text-xl md:text-2xl font-light mb-6">Panduan Praktikal Transformasi Maklumat Visual Untuk Pekerja Pejabat</p>
-            <p class="text-md opacity-80">Disediakan oleh: DR MUHAMMAD ZA'IM BIN MOHD SAMSURI</p>
-            <p class="text-sm opacity-80 mt-2">MBBCH AIN SHAMS UNIVERSITY, EGYPT | MPH USM</p>
-        </div>
-    </header>
+<body>
 
-    <!-- Main Content -->
-    <main class="max-w-5xl mx-auto px-4 py-12 space-y-16">
+<!-- HERO -->
+<section class="relative overflow-hidden">
 
-        <!-- Pengenalan -->
-        <section class="text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-semibold mb-6 text-blue-700">Realiti Pembuatan Visual</h2>
-            <p class="text-lg mb-4 text-slate-600">Terlahu banyak masa dihabiskan dan sering kali kita tiada kemahiran rekaan grafik. Namun, dengan Google NotebookLM, AI boleh menukar teks panjang kepada visual memukau dalam masa hanya 2 minit.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <h3 class="font-bold text-xl mb-2">Grounded AI</h3>
-                    <p class="text-sm text-slate-600">AI hanya membaca dokumen yang anda berikan tanpa halusinasi fakta luar, menjadikannya selamat untuk kerja pejabat.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <h3 class="font-bold text-xl mb-2">Akses Percuma</h3>
-                    <p class="text-sm text-slate-600">Guna akaun Google sedia ada tanpa sebarang kos langganan.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <h3 class="font-bold text-xl mb-2">Enjin Penjana</h3>
-                    <p class="text-sm text-slate-600">Mampu menganalisis ratusan fail serentak untuk menghasilkan visual dan nota.</p>
-                </div>
+    <div class="absolute top-0 left-0 w-full h-full gradient opacity-20"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 py-20">
+
+        <div class="text-center">
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-teal-300 text-sm mb-6">
+                <i class="fa-solid fa-brain"></i>
+                <span>Kursus Untuk Pekerja Pejabat & Kesihatan</span>
             </div>
-        </section>
 
-        <hr class="border-slate-200">
+            <h1 class="text-5xl md:text-6xl font-black leading-tight">
+                Penghasilan
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
+                    Infografik & Slaid AI
+                </span>
+            </h1>
 
-        <!-- Langkah 1 & 2 -->
-        <section>
-            <h2 class="text-3xl font-semibold mb-8 text-center text-blue-700">Langkah Penghasilan</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Langkah 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-500">
-                    <h3 class="text-2xl font-bold mb-4">1. Masukkan Bahan Mentah</h3>
-                    <p class="mb-4 text-slate-600">Muat naik berbilang sumber serentak ke dalam corong AI. AI akan membaca dan menggabungkannya secara automatik.</p>
-                    <ul class="list-disc list-inside space-y-2 text-slate-700">
-                        <li>Laporan PDF</li>
-                        <li>Google Docs / Slides</li>
-                        <li>Pautan Laman Web</li>
-                        <li>Video YouTube</li>
-                        <li>Salin & Tampal Teks</li>
-                    </ul>
-                </div>
+            <p class="mt-6 text-slate-300 text-lg max-w-3xl mx-auto">
+                Belajar hasilkan slaid pembentangan profesional dan infografik berkualiti tinggi menggunakan AI dalam masa beberapa minit sahaja.
+            </p>
 
-                <!-- Langkah 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-emerald-500">
-                    <h3 class="text-2xl font-bold mb-4">2. Akses Ruang Studio</h3>
-                    <p class="mb-4 text-slate-600">Jangan hanya guna ruang sembang (chat). Magis sebenar berlaku di panel Studio untuk proses penjanaan sepantas kilat.</p>
-                    <ol class="list-decimal list-inside space-y-2 text-slate-700 mb-4">
-                        <li>Pilih format (Infographic atau Slide Deck).</li>
-                        <li>Sunting tetapan (Klik ikon Pensil) - Paling Penting!.</li>
-                        <li>Klik Jana (Generate) dan tunggu 2 minit.</li>
-                    </ol>
-                </div>
-            </div>
-        </section>
+            <div class="mt-10 glass rounded-2xl p-6 max-w-2xl mx-auto text-left">
 
-        <!-- Tetapan & Gaya -->
-        <section class="bg-blue-50 rounded-3xl p-8 md:p-12">
-            <h2 class="text-3xl font-semibold mb-8 text-center text-blue-800">Matriks Kepadatan & Estetika</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-3">Pilih Tahap Perincian</h3>
-                    <ul class="space-y-3">
-                        <li class="bg-white p-4 rounded-lg shadow-sm border border-emerald-200">
-                            <strong>CONCISE (Ringkas):</strong> Teks paling minimum, mudah diimbas. Pilihan terbaik untuk impak visual maksimum.
-                        </li>
-                        <li class="bg-white p-4 rounded-lg shadow-sm">
-                            <strong>STANDARD (Biasa):</strong> Tetapan lalai, imbangan teks dan gambar.
-                        </li>
-                        <li class="bg-white p-4 rounded-lg shadow-sm border border-red-200">
-                            <strong>DETAILED (Terperinci):</strong> Teks terlalu kecil. AI berisiko membuat susunan berselerak. Elakkan!.
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-bold mb-3">Kuasa Prompt Visual</h3>
-                    <p class="mb-4 text-sm text-slate-600">Masukkan kata kunci ini untuk mengubah gaya tanpa kemahiran grafik:</p>
-                    <div class="space-y-2">
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border-l-4 border-indigo-500"><strong>Profesional Korporat:</strong> Modern corporate, bold and clean design</div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border-l-4 border-indigo-500"><strong>Elemen 3D:</strong> Tactile 3D style with inflated shapes</div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border-l-4 border-indigo-500"><strong>Lakaran Tangan:</strong> Classic sketch noting style, whiteboard effect</div>
-                        <div class="bg-white px-4 py-3 rounded-lg shadow-sm border-l-4 border-indigo-500"><strong>Kawaii / Santai:</strong> Kawaii, cute pastel style</div>
+                <div class="flex items-start gap-4">
+
+                    <div class="w-14 h-14 rounded-xl bg-teal-500/20 flex items-center justify-center text-2xl text-teal-400">
+                        <i class="fa-solid fa-user-doctor"></i>
                     </div>
+
+                    <div>
+                        <h3 class="font-bold text-xl">
+                            DR MUHAMMAD ZA'IM BIN MOHD SAMSURI
+                        </h3>
+
+                        <p class="text-slate-400 mt-2 text-sm">
+                            Medical Practitioner • Public Health Expert • AI Visual Educator
+                        </p>
+                    </div>
+
                 </div>
+
             </div>
 
-            <div class="bg-white p-6 rounded-xl text-center shadow-md">
-                <h3 class="font-bold text-lg mb-2">Tips Tambahan</h3>
-                <p class="text-slate-700"><strong>Warna:</strong> Gunakan Hex Code (Cth: #0044CC) dalam prompt atau jana di Coolors.co.</p>
-                <p class="text-slate-700 mt-2"><strong>Buang Watermark:</strong> Muat naik visual ke MagicEraser.org, sapu pada logo NotebookLM, dan muat turun versi bersih.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTENT -->
+<section class="max-w-7xl mx-auto px-6 pb-20">
+
+    <div class="grid lg:grid-cols-12 gap-6">
+
+        <!-- SIDEBAR -->
+        <div class="lg:col-span-3 glass rounded-3xl p-5 h-fit">
+
+            <h3 class="text-slate-300 font-bold mb-4 uppercase text-sm tracking-wider">
+                Modul
+            </h3>
+
+            <div class="space-y-2">
+
+                <button onclick="switchTab('cabaran')" id="btn-cabaran"
+                    class="tab-btn w-full text-left px-4 py-3 rounded-xl bg-teal-500/20 text-teal-300 font-semibold">
+                    1. Cabaran
+                </button>
+
+                <button onclick="switchTab('notebooklm')" id="btn-notebooklm"
+                    class="tab-btn w-full text-left px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300">
+                    2. NotebookLM
+                </button>
+
+                <button onclick="switchTab('workflow')" id="btn-workflow"
+                    class="tab-btn w-full text-left px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300">
+                    3. Workflow AI
+                </button>
+
+                <button onclick="switchTab('prompt')" id="btn-prompt"
+                    class="tab-btn w-full text-left px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300">
+                    4. Prompt & Design
+                </button>
+
             </div>
-        </section>
 
-        <!-- Slaid & Gemini -->
-        <section>
-            <h2 class="text-3xl font-semibold mb-8 text-center text-blue-700">Penciptaan Slaid & Integrasi PPTX</h2>
-            
-            <div class="flex flex-col md:flex-row gap-8 items-center">
-                <div class="flex-1 space-y-4">
-                    <p class="text-lg text-slate-700">AI membaca, merumus, dan menyusun naratif daripada ratusan muka surat. Draf slaid lengkap dijana sepantas 5 minit. Pilih format yang sesuai:</p>
-                    <ul class="list-disc list-inside bg-slate-100 p-5 rounded-lg">
-                        <li class="mb-2"><strong>Slaid Bacaan Kendiri:</strong> Teks komprehensif, sesuai untuk e-mel tanpa pembentang.</li>
-                        <li><strong>Slaid Pembentang:</strong> Visual bersih dengan poin ringkas supaya tidak menenggelamkan suara anda.</li>
-                    </ul>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="lg:col-span-9 glass rounded-3xl p-8">
+
+            <!-- TAB 1 -->
+            <div id="tab-cabaran" class="tab-content active">
+
+                <h2 class="text-3xl font-bold mb-6">
+                    Cabaran Biasa di Pejabat
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-5">
+
+                    <div class="card bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                        <div class="text-red-400 text-3xl mb-4">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+
+                        <h4 class="font-bold text-lg mb-2">
+                            Banyak Masa Terbuang
+                        </h4>
+
+                        <p class="text-slate-400 text-sm">
+                            Terlalu lama siapkan slaid dan susun maklumat.
+                        </p>
+                    </div>
+
+                    <div class="card bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                        <div class="text-yellow-400 text-3xl mb-4">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+
+                        <h4 class="font-bold text-lg mb-2">
+                            Tiada Skill Design
+                        </h4>
+
+                        <p class="text-slate-400 text-sm">
+                            Sukar nak hasilkan visual yang cantik dan profesional.
+                        </p>
+                    </div>
+
+                    <div class="card bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                        <div class="text-blue-400 text-3xl mb-4">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+
+                        <h4 class="font-bold text-lg mb-2">
+                            Data Terlalu Padat
+                        </h4>
+
+                        <p class="text-slate-400 text-sm">
+                            Audiens cepat bosan bila terlalu banyak teks.
+                        </p>
+                    </div>
+
                 </div>
-                
-                <div class="flex-1 bg-gradient-to-br from-indigo-500 to-purple-600 text-white p-8 rounded-2xl shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4">Jambatan ke PowerPoint</h3>
-                    <ol class="list-decimal list-inside space-y-3 font-medium">
-                        <li>Jana Slaid di NotebookLM (format PDF).</li>
-                        <li>Salin keseluruhan teks rangka (outline) slaid.</li>
-                        <li>Tampal ke Google Gemini.</li>
-                        <li>Arahkan Gemini menukar rangka kepada pembentangan.</li>
-                    </ol>
-                </div>
+
             </div>
-        </section>
 
-        <!-- CTA -->
-        <section class="text-center py-12 bg-blue-600 text-white rounded-3xl px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Bertindak Sekarang!</h2>
-            <p class="text-xl mb-8 font-light max-w-2xl mx-auto">Kembalikan masa berharga anda. Anda kini mempunyai pembantu rekaan peribadi yang beroperasi secara percuma, pantas, dan tepat.</p>
-            <a href="https://notebooklm.google.com" target="_blank" class="inline-block bg-white text-blue-600 font-bold py-4 px-10 rounded-full hover:bg-slate-100 transition shadow-lg text-lg">
-                Buka notebooklm.google Hari Ini
-            </a>
-        </section>
+            <!-- TAB 2 -->
+            <div id="tab-notebooklm" class="tab-content">
 
-    </main>
+                <h2 class="text-3xl font-bold mb-6">
+                    Kenapa Guna NotebookLM?
+                </h2>
 
-    <footer class="text-center py-6 text-slate-500 text-sm border-t border-slate-200 mt-12">
-        <p>Ringkasan Blueprint Aliran Kerja Visual Pejabat (Kumpul > Arah > Kemas)</p>
-    </footer>
+                <div class="space-y-5">
+
+                    <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                        <h4 class="font-bold text-xl text-teal-400 mb-2">
+                            Grounded AI
+                        </h4>
+
+                        <p class="text-slate-300">
+                            AI hanya membaca fail yang kita upload.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                        <h4 class="font-bold text-xl text-blue-400 mb-2">
+                            Percuma
+                        </h4>
+
+                        <p class="text-slate-300">
+                            Boleh guna akaun Google biasa tanpa bayaran.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                        <h4 class="font-bold text-xl text-purple-400 mb-2">
+                            Cepat & Pintar
+                        </h4>
+
+                        <p class="text-slate-300">
+                            Ringkaskan dokumen panjang jadi infografik dalam beberapa minit.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TAB 3 -->
+            <div id="tab-workflow" class="tab-content">
+
+                <h2 class="text-3xl font-bold mb-8">
+                    Workflow AI
+                </h2>
+
+                <div class="space-y-6">
+
+                    <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                        <h4 class="font-bold text-xl text-blue-400 mb-2">
+                            1. Upload Dokumen
+                        </h4>
+
+                        <p class="text-slate-300">
+                            PDF, Google Docs, website, YouTube dan sebagainya.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                        <h4 class="font-bold text-xl text-teal-400 mb-2">
+                            2. Generate Infografik
+                        </h4>
+
+                        <p class="text-slate-300">
+                            Pilih mode infographic atau slide deck.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                        <h4 class="font-bold text-xl text-purple-400 mb-2">
+                            3. Edit & Export
+                        </h4>
+
+                        <p class="text-slate-300">
+                            Gunakan Gemini atau Canva untuk touch up akhir.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TAB 4 -->
+            <div id="tab-prompt" class="tab-content">
+
+                <h2 class="text-3xl font-bold mb-8">
+                    Prompt & Design
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-5">
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        <h4 class="font-bold mb-3">
+                            Tema Korporat
+                        </h4>
+
+                        <code class="text-blue-400 text-sm">
+                            Modern corporate clean design
+                        </code>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        <h4 class="font-bold mb-3">
+                            Tema 3D
+                        </h4>
+
+                        <code class="text-blue-400 text-sm">
+                            Tactile 3D style
+                        </code>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        <h4 class="font-bold mb-3">
+                            Tema Whiteboard
+                        </h4>
+
+                        <code class="text-blue-400 text-sm">
+                            Classic sketch noting style
+                        </code>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800">
+                        <h4 class="font-bold mb-3">
+                            Tema Kawaii
+                        </h4>
+
+                        <code class="text-blue-400 text-sm">
+                            Kawaii pastel style
+                        </code>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="max-w-5xl mx-auto px-6 pb-20">
+
+    <div class="glass rounded-3xl p-10 text-center">
+
+        <div class="text-5xl text-teal-400 mb-6">
+            <i class="fa-solid fa-rocket"></i>
+        </div>
+
+        <h2 class="text-4xl font-black mb-4">
+            Jimat Masa Dengan AI
+        </h2>
+
+        <p class="text-slate-300 max-w-2xl mx-auto mb-8">
+            Hasilkan slaid profesional dan infografik berkualiti tinggi tanpa perlu jadi designer.
+        </p>
+
+        <a href="https://notebooklm.google"
+            target="_blank"
+            class="inline-block bg-gradient-to-r from-teal-500 to-blue-600 px-8 py-4 rounded-xl font-bold hover:scale-105 transition">
+            Buka NotebookLM
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
+    MedTech AI Visual Framework © 2026
+</footer>
+
+<script>
+
+function switchTab(tab){
+
+    const contents=document.querySelectorAll('.tab-content');
+    contents.forEach(c=>c.classList.remove('active'));
+
+    const buttons=document.querySelectorAll('.tab-btn');
+
+    buttons.forEach(btn=>{
+        btn.classList.remove('bg-teal-500/20','text-teal-300');
+        btn.classList.add('text-slate-300');
+    });
+
+    document.getElementById('tab-'+tab).classList.add('active');
+
+    const activeBtn=document.getElementById('btn-'+tab);
+
+    activeBtn.classList.add('bg-teal-500/20','text-teal-300');
+}
+
+</script>
 
 </body>
 </html>
