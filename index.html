@@ -46,39 +46,18 @@ body{
     linear-gradient(135deg,#020617,#0f172a,#111827);
 }
 
-/* ===== SIDEBAR ===== */
-
-.sidebar{
-    width:300px;
-    transition:0.35s ease;
-    box-shadow:0 0 60px rgba(0,0,0,0.45);
-}
+/* ===== NAV BUTTON ===== */
 
 .nav-btn{
     position:relative;
     overflow:hidden;
-}
-
-.nav-btn::before{
-    content:'';
-    position:absolute;
-    left:0;
-    top:0;
-    width:4px;
-    height:100%;
-    background:#14b8a6;
-    transform:scaleY(0);
-    transition:0.3s;
+    color:#cbd5e1;
 }
 
 .nav-btn.active{
     background:rgba(20,184,166,0.12);
     color:#2dd4bf;
     border:1px solid rgba(45,212,191,0.18);
-}
-
-.nav-btn.active::before{
-    transform:scaleY(1);
 }
 
 /* ===== SLIDES ===== */
@@ -106,18 +85,20 @@ body{
     }
 }
 
-/* ===== CARDS ===== */
+/* ===== CARD ===== */
 
 .card-hover:hover{
     transform:translateY(-6px);
     transition:0.3s;
 }
 
-/* ===== MOBILE ===== */
+/* ===== MAIN ===== */
 
-.mobile-topbar{
-    display:none;
+.main-content{
+    padding-top:80px;
 }
+
+/* ===== MOBILE ===== */
 
 @media(max-width:1024px){
 
@@ -125,28 +106,8 @@ body{
         overflow:auto;
     }
 
-    .sidebar{
-        position:fixed;
-        left:-100%;
-        top:0;
-        height:100vh;
-        z-index:999;
-    }
-
-    .sidebar.show{
-        left:0;
-    }
-
-    .mobile-topbar{
-        display:flex;
-    }
-
-    .main-content{
-        margin-left:0 !important;
-    }
-
     .slide{
-        padding-top:90px;
+        padding-top:100px;
     }
 
 }
@@ -157,285 +118,185 @@ body{
 
 <body>
 
+<!-- ================================================= -->
 <!-- MOBILE OVERLAY -->
+<!-- ================================================= -->
 
 <div id="overlay"
 class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden"
-onclick="toggleSidebar()">
+onclick="toggleMobileMenu()">
 </div>
 
-<!-- MOBILE TOPBAR -->
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
 
-<div class="mobile-topbar fixed top-0 left-0 right-0 h-16 z-50 glass items-center justify-between px-5">
+<header class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800">
 
-    <div class="flex items-center gap-3">
+    <div class="max-w-7xl mx-auto px-6">
 
-        <div class="w-10 h-10 rounded-xl bg-teal-500/20 flex items-center justify-center text-teal-400">
-            <i class="fa-solid fa-brain"></i>
-        </div>
+        <div class="h-20 flex items-center justify-between">
 
-        <div>
+            <!-- LOGO -->
 
-            <h3 class="font-bold text-sm">
-                MedTech AI
-            </h3>
+            <div class="flex items-center gap-4">
 
-            <p class="text-[10px] text-slate-400">
-                AI Presentation
-            </p>
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
+
+                    <i class="fa-solid fa-microchip text-2xl text-white"></i>
+
+                </div>
+
+                <div>
+
+                    <h2 class="font-black text-xl">
+                        MedTech AI
+                    </h2>
+
+                    <p class="text-xs text-slate-400">
+                        AI Visual Presentation System
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- DESKTOP NAV -->
+
+            <nav class="hidden lg:flex items-center gap-3">
+
+                <button onclick="showSlide('slide1')"
+                id="btn-slide1"
+                class="nav-btn active px-5 py-3 rounded-2xl text-sm font-semibold transition">
+
+                    Cover
+
+                </button>
+
+                <button onclick="showSlide('slide2')"
+                id="btn-slide2"
+                class="nav-btn px-5 py-3 rounded-2xl text-sm font-semibold transition">
+
+                    Cabaran
+
+                </button>
+
+                <button onclick="showSlide('slide3')"
+                id="btn-slide3"
+                class="nav-btn px-5 py-3 rounded-2xl text-sm font-semibold transition">
+
+                    NotebookLM
+
+                </button>
+
+                <button onclick="showSlide('slide4')"
+                id="btn-slide4"
+                class="nav-btn px-5 py-3 rounded-2xl text-sm font-semibold transition">
+
+                    Workflow
+
+                </button>
+
+                <button onclick="showSlide('slide5')"
+                id="btn-slide5"
+                class="nav-btn px-5 py-3 rounded-2xl text-sm font-semibold transition">
+
+                    Prompt
+
+                </button>
+
+                <button onclick="showSlide('slide6')"
+                id="btn-slide6"
+                class="px-5 py-3 rounded-2xl text-sm font-bold transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black">
+
+                    Hands-On
+
+                </button>
+
+            </nav>
+
+            <!-- MOBILE BUTTON -->
+
+            <button
+            onclick="toggleMobileMenu()"
+            class="lg:hidden text-2xl text-white">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
 
         </div>
 
     </div>
 
-    <button onclick="toggleSidebar()" class="text-xl text-white">
+</header>
 
-        <i class="fa-solid fa-bars"></i>
+<!-- ================================================= -->
+<!-- MOBILE MENU -->
+<!-- ================================================= -->
 
-    </button>
+<div id="mobileMenu"
+class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden">
 
-</div>
+    <div class="space-y-3">
 
-<!-- SIDEBAR -->
+        <button onclick="showSlide('slide1')"
+        id="mobile-btn-slide1"
+        class="nav-btn active w-full text-left px-5 py-4 rounded-2xl transition">
 
-<aside id="sidebar"
-class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
-
-    <!-- HEADER -->
-
-    <div class="p-6 border-b border-slate-800 relative">
-
-        <!-- CLOSE MOBILE -->
-
-        <button
-        onclick="toggleSidebar()"
-        class="absolute top-5 right-5 lg:hidden text-slate-400 text-xl">
-
-            <i class="fa-solid fa-xmark"></i>
+            🏠 Cover
 
         </button>
 
-        <div class="flex items-center gap-4">
+        <button onclick="showSlide('slide2')"
+        id="mobile-btn-slide2"
+        class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition">
 
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
+            📊 Cabaran
 
-                <i class="fa-solid fa-microchip text-2xl"></i>
+        </button>
 
-            </div>
+        <button onclick="showSlide('slide3')"
+        id="mobile-btn-slide3"
+        class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition">
 
-            <div>
+            🧠 NotebookLM
 
-                <h2 class="font-black text-xl">
-                    MedTech AI
-                </h2>
+        </button>
 
-                <p class="text-xs text-slate-400">
-                    Visual Presentation System
-                </p>
+        <button onclick="showSlide('slide4')"
+        id="mobile-btn-slide4"
+        class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition">
 
-            </div>
+            ⚙️ Workflow
 
-        </div>
+        </button>
 
-    </div>
+        <button onclick="showSlide('slide5')"
+        id="mobile-btn-slide5"
+        class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition">
 
-    <!-- PROFILE -->
+            🎨 Prompt
 
-    <div class="px-6 py-5 border-b border-slate-800">
+        </button>
 
-        <div class="glass rounded-2xl p-4">
+        <button onclick="showSlide('slide6')"
+        id="mobile-btn-slide6"
+        class="w-full text-left px-5 py-4 rounded-2xl transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-bold">
 
-            <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">
-                Presenter
-            </p>
+            🚀 Hands-On
 
-            <h3 class="font-bold leading-snug">
-                DR MUHAMMAD ZA'IM BIN MOHD SAMSURI
-            </h3>
-
-            <p class="text-xs text-slate-400 mt-2">
-                AI Visual Educator
-            </p>
-
-        </div>
+        </button>
 
     </div>
 
-    <!-- NAVIGATION -->
+</div>
 
-    <div class="flex-1 overflow-y-auto p-5">
-
-        <p class="text-xs uppercase tracking-[3px] text-slate-500 mb-4 px-3">
-            Navigation
-        </p>
-
-        <div class="space-y-3">
-
-            <!-- NAV 1 -->
-
-            <button onclick="showSlide('slide1')" class="nav-btn active w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide1">
-
-                <div class="flex items-center gap-4">
-
-                    <div class="w-11 h-11 rounded-xl bg-teal-500/10 flex items-center justify-center">
-                        <i class="fa-solid fa-house text-teal-400"></i>
-                    </div>
-
-                    <div>
-
-                        <h4 class="font-semibold">
-                            Cover
-                        </h4>
-
-                        <p class="text-xs text-slate-400">
-                            Intro Presentation
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </button>
-
-            <!-- NAV 2 -->
-
-            <button onclick="showSlide('slide2')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide2">
-
-                <div class="flex items-center gap-4">
-
-                    <div class="w-11 h-11 rounded-xl bg-red-500/10 flex items-center justify-center">
-                        <i class="fa-solid fa-chart-line text-red-400"></i>
-                    </div>
-
-                    <div>
-
-                        <h4 class="font-semibold">
-                            Cabaran
-                        </h4>
-
-                        <p class="text-xs text-slate-400">
-                            Masalah pejabat
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </button>
-
-            <!-- NAV 3 -->
-
-            <button onclick="showSlide('slide3')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide3">
-
-                <div class="flex items-center gap-4">
-
-                    <div class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                        <i class="fa-solid fa-brain text-blue-400"></i>
-                    </div>
-
-                    <div>
-
-                        <h4 class="font-semibold">
-                            NotebookLM
-                        </h4>
-
-                        <p class="text-xs text-slate-400">
-                            AI Assistant
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </button>
-
-            <!-- NAV 4 -->
-
-            <button onclick="showSlide('slide4')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide4">
-
-                <div class="flex items-center gap-4">
-
-                    <div class="w-11 h-11 rounded-xl bg-purple-500/10 flex items-center justify-center">
-                        <i class="fa-solid fa-layer-group text-purple-400"></i>
-                    </div>
-
-                    <div>
-
-                        <h4 class="font-semibold">
-                            Workflow
-                        </h4>
-
-                        <p class="text-xs text-slate-400">
-                            Cara penggunaan
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </button>
-
-            <!-- NAV 5 -->
-
-            <button onclick="showSlide('slide5')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide5">
-
-                <div class="flex items-center gap-4">
-
-                    <div class="w-11 h-11 rounded-xl bg-yellow-500/10 flex items-center justify-center">
-                        <i class="fa-solid fa-palette text-yellow-400"></i>
-                    </div>
-
-                    <div>
-
-                        <h4 class="font-semibold">
-                            Prompt
-                        </h4>
-
-                        <p class="text-xs text-slate-400">
-                            Design aesthetic
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </button>
-
-            <!-- NAV 6 -->
-
-            <button onclick="showSlide('slide6')" class="nav-btn w-full text-left px-5 py-4 rounded-2xl transition" id="btn-slide6">
-
-                <div class="flex items-center gap-4">
-
-                    <div class="w-11 h-11 rounded-xl bg-orange-500/10 flex items-center justify-center">
-                        <i class="fa-solid fa-rocket text-orange-400"></i>
-                    </div>
-
-                    <div>
-
-                        <h4 class="font-semibold">
-                            Hands-On
-                        </h4>
-
-                        <p class="text-xs text-slate-400">
-                            Start practical session
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</aside>
-
+<!-- ================================================= -->
 <!-- MAIN -->
+<!-- ================================================= -->
 
-<main class="main-content ml-[300px]">
+<main class="main-content">
 
 <!-- ================================================= -->
 <!-- SLIDE 1 -->
@@ -801,7 +662,7 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 </section>
 
 <!-- ================================================= -->
-<!-- LAST SLIDE CTA -->
+<!-- SLIDE 6 CTA -->
 <!-- ================================================= -->
 
 <section id="slide6" class="slide hero-gradient items-center justify-center p-8">
@@ -920,6 +781,10 @@ class="sidebar fixed top-0 left-0 h-screen glass z-50 flex flex-col">
 
 </main>
 
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
 <script>
 
 function showSlide(slideId){
@@ -940,15 +805,27 @@ function showSlide(slideId){
         btn.classList.remove('active');
     });
 
-    // activate nav
+    // activate desktop nav
 
-    document.getElementById('btn-'+slideId).classList.add('active');
+    const desktopBtn=document.getElementById('btn-'+slideId);
 
-    // mobile auto close
+    if(desktopBtn){
+        desktopBtn.classList.add('active');
+    }
+
+    // activate mobile nav
+
+    const mobileBtn=document.getElementById('mobile-btn-'+slideId);
+
+    if(mobileBtn){
+        mobileBtn.classList.add('active');
+    }
+
+    // close mobile menu
 
     if(window.innerWidth < 1024){
 
-        document.getElementById('sidebar').classList.remove('show');
+        document.getElementById('mobileMenu').classList.add('hidden');
 
         document.getElementById('overlay').classList.add('hidden');
 
@@ -956,15 +833,11 @@ function showSlide(slideId){
 
 }
 
-function toggleSidebar(){
+function toggleMobileMenu(){
 
-    const sidebar=document.getElementById('sidebar');
+    document.getElementById('mobileMenu').classList.toggle('hidden');
 
-    const overlay=document.getElementById('overlay');
-
-    sidebar.classList.toggle('show');
-
-    overlay.classList.toggle('hidden');
+    document.getElementById('overlay').classList.toggle('hidden');
 
 }
 
