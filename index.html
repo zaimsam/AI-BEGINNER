@@ -1,49 +1,209 @@
 ```html
-<nav class="hidden lg:flex items-center gap-2 overflow-x-auto scrollbar-hide py-2">
+<!DOCTYPE html>
+<html lang="ms">
+<head>
 
-    <button onclick="showSlide('slide1')" id="btn-slide1"
-    class="nav-btn active px-4 py-2 rounded-2xl text-sm font-semibold transition">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        👨‍⚕️ Profile
+<title>Dr Muhammad Za'im - AI Healthcare Presentation</title>
 
-    </button>
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <button onclick="showSlide('slide2')" id="btn-slide2"
-    class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        Cabaran
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-    </button>
+<style>
 
-    <button onclick="showSlide('slide3')" id="btn-slide3"
-    class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">
+* {
+    scroll-behavior: smooth;
+}
 
-        NotebookLM
+body {
+    font-family: 'Inter', sans-serif;
+    background: #020617;
+    color: white;
+    overflow: hidden;
+}
 
-    </button>
+.glass {
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
 
-    <button onclick="showSlide('slide4')" id="btn-slide4"
-    class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">
+.hero-gradient {
+    background:
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.25), transparent 30%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.25), transparent 30%),
+    linear-gradient(135deg, #020617, #0f172a, #111827);
+}
 
-        Workflow
+.nav-btn {
+    position: relative;
+    overflow: hidden;
+    color: #cbd5e1;
+    white-space: nowrap;
+}
 
-    </button>
+.nav-btn.active {
+    background: rgba(20, 184, 166, 0.12);
+    color: #2dd4bf;
+    border: 1px solid rgba(45, 212, 191, 0.18);
+}
 
-    <button onclick="showSlide('slide5')" id="btn-slide5"
-    class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
 
-        Prompt
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
-    </button>
+.slide {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    overflow-y: auto;
+}
 
-    <button onclick="showSlide('slide6')" id="btn-slide6"
-    class="px-4 py-2 rounded-2xl text-sm font-bold transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black whitespace-nowrap">
+.slide.active {
+    display: flex;
+    animation: fade 0.4s ease;
+}
 
-        Hands-On
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-    </button>
+.card-hover:hover {
+    transform: translateY(-6px);
+    transition: 0.3s;
+}
 
-</nav>
+.main-content {
+    padding-top: 80px;
+}
+
+img {
+    transition: 0.4s ease;
+}
+
+img:hover {
+    transform: scale(1.03);
+}
+
+@media(max-width: 1024px) {
+    body {
+        overflow: auto;
+    }
+
+    .slide {
+        padding-top: 100px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="overlay"
+class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden"
+onclick="toggleMobileMenu()">
+</div>
+
+<header class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="h-20 flex items-center justify-between">
+
+            <div class="flex items-center gap-4 shrink-0 pr-4">
+
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
+
+                    <i class="fa-solid fa-microchip text-2xl text-white"></i>
+
+                </div>
+
+                <div>
+
+                    <h2 class="font-black text-xl">
+                        MedTech AI
+                    </h2>
+
+                    <p class="text-xs text-slate-400">
+                        AI Visual Presentation
+                    </p>
+
+                </div>
+
+            </div>
+
+            <nav class="hidden lg:flex items-center gap-2 overflow-x-auto scrollbar-hide py-2">
+
+                <button onclick="showSlide('slide1')" id="btn-slide1" class="nav-btn active px-4 py-2 rounded-2xl text-sm font-semibold transition">
+
+                    👨‍⚕️ Profile
+
+                </button>
+
+                <button onclick="showSlide('slide2')" id="btn-slide2" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">
+
+                    Cabaran
+
+                </button>
+
+                <button onclick="showSlide('slide3')" id="btn-slide3" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">
+
+                    NotebookLM
+
+                </button>
+
+                <button onclick="showSlide('slide4')" id="btn-slide4" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">
+
+                    Workflow
+
+                </button>
+
+                <button onclick="showSlide('slide5')" id="btn-slide5" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">
+
+                    Prompt
+
+                </button>
+
+                <button onclick="showSlide('slide6')" id="btn-slide6" class="px-4 py-2 rounded-2xl text-sm font-bold transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black whitespace-nowrap">
+
+                    Hands-On
+
+                </button>
+
+            </nav>
+
+            <button
+            onclick="toggleMobileMenu()"
+            class="lg:hidden text-2xl text-white shrink-0 pl-4">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
 
 <div id="mobileMenu"
 class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden max-h-[80vh] overflow-y-auto">
@@ -56,43 +216,37 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden m
 
         </div>
 
-        <button onclick="showSlide('slide1')" id="mobile-btn-slide1"
-        class="nav-btn active w-full text-left px-5 py-3 rounded-2xl transition">
+        <button onclick="showSlide('slide1')" id="mobile-btn-slide1" class="nav-btn active w-full text-left px-5 py-3 rounded-2xl transition">
 
             👨‍⚕️ Profile
 
         </button>
 
-        <button onclick="showSlide('slide2')" id="mobile-btn-slide2"
-        class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">
+        <button onclick="showSlide('slide2')" id="mobile-btn-slide2" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">
 
             📊 Cabaran
 
         </button>
 
-        <button onclick="showSlide('slide3')" id="mobile-btn-slide3"
-        class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">
+        <button onclick="showSlide('slide3')" id="mobile-btn-slide3" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">
 
             🧠 NotebookLM
 
         </button>
 
-        <button onclick="showSlide('slide4')" id="mobile-btn-slide4"
-        class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">
+        <button onclick="showSlide('slide4')" id="mobile-btn-slide4" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">
 
             ⚙️ Workflow
 
         </button>
 
-        <button onclick="showSlide('slide5')" id="mobile-btn-slide5"
-        class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">
+        <button onclick="showSlide('slide5')" id="mobile-btn-slide5" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">
 
             🎨 Prompt
 
         </button>
 
-        <button onclick="showSlide('slide6')" id="mobile-btn-slide6"
-        class="w-full text-left px-5 py-3 rounded-2xl transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-bold">
+        <button onclick="showSlide('slide6')" id="mobile-btn-slide6" class="w-full text-left px-5 py-3 rounded-2xl transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-bold">
 
             🚀 Hands-On
 
@@ -101,6 +255,8 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden m
     </div>
 
 </div>
+
+<main class="main-content">
 
 <section id="slide1" class="slide active hero-gradient items-center justify-center p-8">
 
@@ -192,58 +348,6 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden m
 
             </div>
 
-            <div class="grid grid-cols-3 gap-5 mt-14">
-
-                <div class="glass rounded-3xl p-5 text-center">
-
-                    <h4 class="text-3xl font-black text-teal-400">
-
-                        AI
-
-                    </h4>
-
-                    <p class="text-sm text-slate-400 mt-2">
-
-                        Healthcare Research
-
-                    </p>
-
-                </div>
-
-                <div class="glass rounded-3xl p-5 text-center">
-
-                    <h4 class="text-3xl font-black text-blue-400">
-
-                        MPH
-
-                    </h4>
-
-                    <p class="text-sm text-slate-400 mt-2">
-
-                        Public Health
-
-                    </p>
-
-                </div>
-
-                <div class="glass rounded-3xl p-5 text-center">
-
-                    <h4 class="text-3xl font-black text-purple-400">
-
-                        DOSH
-
-                    </h4>
-
-                    <p class="text-sm text-slate-400 mt-2">
-
-                        Occupational Health
-
-                    </p>
-
-                </div>
-
-            </div>
-
         </div>
 
         <div class="flex justify-center">
@@ -265,4 +369,55 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden m
     </div>
 
 </section>
+
+</main>
+
+<script>
+
+function showSlide(slideId){
+
+    document.querySelectorAll('.slide').forEach(slide=>{
+        slide.classList.remove('active');
+    });
+
+    document.getElementById(slideId).classList.add('active');
+
+    document.querySelectorAll('.nav-btn').forEach(btn=>{
+        btn.classList.remove('active');
+    });
+
+    const desktopBtn=document.getElementById('btn-'+slideId);
+
+    if(desktopBtn){
+        desktopBtn.classList.add('active');
+    }
+
+    const mobileBtn=document.getElementById('mobile-btn-'+slideId);
+
+    if(mobileBtn){
+        mobileBtn.classList.add('active');
+    }
+
+    if(window.innerWidth < 1024){
+
+        document.getElementById('mobileMenu').classList.add('hidden');
+
+        document.getElementById('overlay').classList.add('hidden');
+
+    }
+
+}
+
+function toggleMobileMenu(){
+
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+
+    document.getElementById('overlay').classList.toggle('hidden');
+
+}
+
+</script>
+
+</body>
+</html>
 ```
