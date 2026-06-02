@@ -1,63 +1,49 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Penghasilan Infografik & Slaid AI</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
-
 * {
     scroll-behavior: smooth;
 }
-
 body {
     font-family: 'Inter', sans-serif;
     background: #020617;
     color: white;
     overflow: hidden;
 }
-
 /* ===== GLASS ===== */
-
 .glass {
     background: rgba(15, 23, 42, 0.72);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.06);
 }
-
 /* ===== HERO ===== */
-
 .hero-gradient {
     background:
     radial-gradient(circle at top left, rgba(20, 184, 166, 0.25), transparent 30%),
     radial-gradient(circle at top right, rgba(59, 130, 246, 0.25), transparent 30%),
     linear-gradient(135deg, #020617, #0f172a, #111827);
 }
-
 /* ===== NAV BUTTON ===== */
-
 .nav-btn {
     position: relative;
     overflow: hidden;
     color: #cbd5e1;
     white-space: nowrap;
 }
-
 .nav-btn.active {
     background: rgba(20, 184, 166, 0.12);
     color: #2dd4bf;
     border: 1px solid rgba(45, 212, 191, 0.18);
 }
-
 /* Hide scrollbar for nav */
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
@@ -66,21 +52,17 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
 /* ===== SLIDES ===== */
-
 .slide {
     min-height: 100vh;
     width: 100%;
     display: none;
     overflow-y: auto;
 }
-
 .slide.active {
     display: flex;
     animation: fade 0.4s ease;
 }
-
 @keyframes fade {
     from {
         opacity: 0;
@@ -91,22 +73,16 @@ body {
         transform: translateY(0);
     }
 }
-
 /* ===== CARD ===== */
-
 .card-hover:hover {
     transform: translateY(-6px);
     transition: 0.3s;
 }
-
 /* ===== MAIN ===== */
-
 .main-content {
     padding-top: 80px;
 }
-
 /* ===== MOBILE ===== */
-
 @media(max-width: 1024px) {
     body {
         overflow: auto;
@@ -115,9 +91,7 @@ body {
         padding-top: 100px;
     }
 }
-
 </style>
-
 </head>
 
 <body>
@@ -128,35 +102,24 @@ onclick="toggleMobileMenu()">
 </div>
 
 <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800">
-
     <div class="max-w-7xl mx-auto px-6">
-
         <div class="h-20 flex items-center justify-between">
-
             <div class="flex items-center gap-4 shrink-0 pr-4">
-
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
-
                     <i class="fa-solid fa-microchip text-2xl text-white"></i>
-
                 </div>
-
                 <div>
-
                     <h2 class="font-black text-xl">
                         MedTech AI
                     </h2>
-
                     <p class="text-xs text-slate-400">
                         AI Visual Presentation
                     </p>
-
                 </div>
-
             </div>
 
+            <!-- NAV DESKTOP -->
             <nav class="hidden lg:flex items-center gap-2 overflow-x-auto scrollbar-hide py-2">
-
                 <button onclick="showSlide('slide1')" id="btn-slide1" class="nav-btn active px-4 py-2 rounded-2xl text-sm font-semibold transition">Cover</button>
                 <button onclick="showSlide('slide2')" id="btn-slide2" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Cabaran</button>
                 <button onclick="showSlide('slide3')" id="btn-slide3" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">NotebookLM</button>
@@ -164,34 +127,35 @@ onclick="toggleMobileMenu()">
                 <button onclick="showSlide('slide5')" id="btn-slide5" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Prompt</button>
                 <button onclick="showSlide('slide6')" id="btn-slide6" class="px-4 py-2 rounded-2xl text-sm font-bold transition bg-gradient-to-r from-orange-500 to-yellow-500 text-black whitespace-nowrap">Hands-On</button>
                 
-                <div class="w-px h-6 bg-slate-700 mx-1"></div> <button onclick="showSlide('slide7')" id="btn-slide7" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Topik 2</button>
+                <div class="w-px h-6 bg-slate-700 mx-1"></div>
+
+                <button onclick="showSlide('slide7')" id="btn-slide7" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Topik 2</button>
                 <button onclick="showSlide('slide8')" id="btn-slide8" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Objektif</button>
                 <button onclick="showSlide('slide9')" id="btn-slide9" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Risiko</button>
                 <button onclick="showSlide('slide10')" id="btn-slide10" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Etika</button>
                 <button onclick="showSlide('slide11')" id="btn-slide11" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Privasi</button>
                 <button onclick="showSlide('slide12')" id="btn-slide12" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Rumusan</button>
 
+                <!-- SLIDE BARU -->
+                <button onclick="showSlide('slide13')" id="btn-slide13" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Gemini & NotebookLM</button>
+                <button onclick="showSlide('slide14')" id="btn-slide14" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Latihan</button>
+                <button onclick="showSlide('slide15')" id="btn-slide15" class="nav-btn px-4 py-2 rounded-2xl text-sm font-semibold transition">Garis Panduan AI</button>
             </nav>
 
+            <!-- NAV MOBILE BTN -->
             <button
             onclick="toggleMobileMenu()"
             class="lg:hidden text-2xl text-white shrink-0 pl-4">
-
                 <i class="fa-solid fa-bars"></i>
-
             </button>
-
         </div>
-
     </div>
-
 </header>
 
+<!-- NAV MOBILE -->
 <div id="mobileMenu"
 class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden max-h-[80vh] overflow-y-auto">
-
     <div class="space-y-2">
-
         <div class="text-xs font-bold text-slate-500 uppercase px-2 mb-2">Topik 1: Pengenalan</div>
         <button onclick="showSlide('slide1')" id="mobile-btn-slide1" class="nav-btn active w-full text-left px-5 py-3 rounded-2xl transition">🏠 Cover</button>
         <button onclick="showSlide('slide2')" id="mobile-btn-slide2" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">📊 Cabaran</button>
@@ -208,987 +172,875 @@ class="fixed top-20 left-4 right-4 glass rounded-3xl p-5 z-50 hidden lg:hidden m
         <button onclick="showSlide('slide11')" id="mobile-btn-slide11" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">🔒 Privasi</button>
         <button onclick="showSlide('slide12')" id="mobile-btn-slide12" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">✅ Rumusan</button>
 
+        <button onclick="showSlide('slide13')" id="mobile-btn-slide13" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">🧠 Gemini & NotebookLM</button>
+        <button onclick="showSlide('slide14')" id="mobile-btn-slide14" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">📚 Latihan Praktikal</button>
+        <button onclick="showSlide('slide15')" id="mobile-btn-slide15" class="nav-btn w-full text-left px-5 py-3 rounded-2xl transition">📋 Garis Panduan AI</button>
     </div>
-
 </div>
 
 <main class="main-content">
 
+<!-- SLIDE 1 -->
 <section id="slide1" class="slide active hero-gradient items-center justify-center p-8">
-
     <div class="max-w-6xl mx-auto text-center">
-
         <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-8">
-
             <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-
             <span class="text-sm text-teal-300">
-                Kursus Untuk Pekerja Pejabat & Kesihatan
+                Sesi 6 & 7 • Kursus Untuk Pekerja Pejabat & Kesihatan
             </span>
-
         </div>
 
         <h1 class="text-5xl lg:text-7xl font-black leading-tight">
-
             Penghasilan
-
             <span class="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
-
-                Infografik &
-                Slaid AI
-
+                Infografik & Slaid AI
             </span>
-
         </h1>
 
         <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
-
-            Hasilkan visual profesional, infografik moden dan slaid pembentangan berkualiti tinggi menggunakan AI dalam masa beberapa minit sahaja.
-
+            Sesi 6: Penghasilan Infografik & Slaid Pembentangan Pantas Berasaskan AI.
+            Sesi 7: Integrasi AI dalam Kerja Harian serta isu Etika, Privasi dan Keselamatan Data.
         </p>
 
         <div class="mt-14 flex flex-wrap justify-center gap-4">
-
             <div class="glass px-6 py-4 rounded-2xl">
-
                 <h4 class="font-bold text-2xl text-teal-400">
                     2 MINIT
                 </h4>
-
                 <p class="text-sm text-slate-400">
                     Generate visual
                 </p>
-
             </div>
 
             <div class="glass px-6 py-4 rounded-2xl">
-
                 <h4 class="font-bold text-2xl text-blue-400">
                     AI BASED
                 </h4>
-
                 <p class="text-sm text-slate-400">
-                    Powered by NotebookLM
+                    Powered by NotebookLM & Gemini
                 </p>
-
             </div>
 
             <div class="glass px-6 py-4 rounded-2xl">
-
                 <h4 class="font-bold text-2xl text-purple-400">
                     MOBILE
                 </h4>
-
                 <p class="text-sm text-slate-400">
                     Smartphone friendly
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 2 -->
 <section id="slide2" class="slide items-center p-8">
-
     <div class="max-w-6xl mx-auto w-full">
-
         <h2 class="text-5xl font-black mb-4">
             Cabaran Biasa
         </h2>
-
         <p class="text-slate-400 text-xl mb-12">
             Masalah yang sering dihadapi semasa menyediakan pembentangan.
         </p>
 
         <div class="grid lg:grid-cols-3 gap-8">
-
             <div class="card-hover glass rounded-3xl p-8">
-
                 <div class="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400 text-3xl mb-6">
-
                     <i class="fa-regular fa-clock"></i>
-
                 </div>
-
                 <h3 class="text-2xl font-bold mb-4">
                     Masa Terbuang
                 </h3>
-
                 <p class="text-slate-400 leading-relaxed">
                     Mengambil masa terlalu lama untuk siapkan slaid dan visual.
                 </p>
-
             </div>
 
             <div class="card-hover glass rounded-3xl p-8">
-
                 <div class="w-16 h-16 rounded-2xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 text-3xl mb-6">
-
                     <i class="fa-solid fa-palette"></i>
-
                 </div>
-
                 <h3 class="text-2xl font-bold mb-4">
                     Tiada Skill Design
                 </h3>
-
                 <p class="text-slate-400 leading-relaxed">
                     Sukar hasilkan visual yang moden dan profesional.
                 </p>
-
             </div>
 
             <div class="card-hover glass rounded-3xl p-8">
-
                 <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-3xl mb-6">
-
                     <i class="fa-solid fa-file-lines"></i>
-
                 </div>
-
                 <h3 class="text-2xl font-bold mb-4">
                     Data Terlalu Padat
                 </h3>
-
                 <p class="text-slate-400 leading-relaxed">
                     Audiens cepat bosan bila terlalu banyak teks.
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 3 -->
 <section id="slide3" class="slide items-center p-8">
-
     <div class="max-w-5xl mx-auto w-full">
-
         <h2 class="text-5xl font-black mb-10">
             Kenapa NotebookLM?
         </h2>
 
         <div class="space-y-6">
-
             <div class="glass rounded-3xl p-8">
-
                 <h3 class="text-2xl font-bold text-teal-400 mb-3">
                     Grounded AI
                 </h3>
-
                 <p class="text-slate-300 text-lg">
-                    AI hanya membaca fail yang kita upload.
+                    AI hanya membaca dan menganalisis fail yang kita upload seperti PDF, polisi jabatan dan artikel.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <h3 class="text-2xl font-bold text-blue-400 mb-3">
                     Percuma
                 </h3>
-
                 <p class="text-slate-300 text-lg">
-                    Tidak perlu bayaran premium.
+                    Tidak perlu bayaran premium — sesuai untuk kegunaan harian kakitangan.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <h3 class="text-2xl font-bold text-purple-400 mb-3">
                     Cepat & Pintar
                 </h3>
-
                 <p class="text-slate-300 text-lg">
-                    Ringkaskan dokumen panjang jadi infografik.
+                    Ringkaskan dokumen panjang kepada infografik dan slide deck yang tersusun dalam beberapa minit.
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 4 -->
 <section id="slide4" class="slide items-center p-8">
-
     <div class="max-w-5xl mx-auto w-full">
-
         <h2 class="text-5xl font-black mb-12">
             Workflow AI
         </h2>
 
         <div class="space-y-8">
-
             <div class="glass rounded-3xl p-8 flex gap-6">
-
                 <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl font-black">
                     1
                 </div>
-
                 <div>
-
                     <h3 class="text-2xl font-bold mb-3">
                         Upload Dokumen
                     </h3>
-
                     <p class="text-slate-400 text-lg">
-                        PDF, Google Docs, Website dan YouTube.
+                        PDF, Google Docs, Website dan YouTube dimuat naik ke NotebookLM.
                     </p>
-
                 </div>
-
             </div>
 
             <div class="glass rounded-3xl p-8 flex gap-6">
-
                 <div class="w-16 h-16 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-400 text-2xl font-black">
                     2
                 </div>
-
                 <div>
-
                     <h3 class="text-2xl font-bold mb-3">
                         Generate Visual
                     </h3>
-
                     <p class="text-slate-400 text-lg">
-                        Pilih infographic atau slide deck.
+                        Pilih untuk jana infografik atau slide deck berdasarkan dokumen tersebut.
                     </p>
-
                 </div>
-
             </div>
 
             <div class="glass rounded-3xl p-8 flex gap-6">
-
                 <div class="w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl font-black">
                     3
                 </div>
-
                 <div>
-
                     <h3 class="text-2xl font-bold mb-3">
                         Export & Edit
                     </h3>
-
                     <p class="text-slate-400 text-lg">
-                        Export ke PowerPoint dan edit ikut keperluan.
+                        Export ke PowerPoint atau Google Slides dan edit ikut keperluan serta identiti korporat.
                     </p>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 5 -->
 <section id="slide5" class="slide items-center p-8">
-
     <div class="max-w-6xl mx-auto w-full">
-
         <h2 class="text-5xl font-black mb-12">
             Prompt & Aesthetic
         </h2>
 
         <div class="grid lg:grid-cols-2 gap-8">
-
             <div class="glass rounded-3xl p-8">
-
                 <h3 class="text-2xl font-bold mb-4">
                     Corporate Design
                 </h3>
-
                 <code class="text-blue-400 text-lg">
                     Modern corporate clean design
                 </code>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <h3 class="text-2xl font-bold mb-4">
                     3D Design
                 </h3>
-
                 <code class="text-blue-400 text-lg">
                     Tactile 3D style
                 </code>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <h3 class="text-2xl font-bold mb-4">
                     Whiteboard
                 </h3>
-
                 <code class="text-blue-400 text-lg">
                     Classic sketch noting style
                 </code>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <h3 class="text-2xl font-bold mb-4">
                     Kawaii
                 </h3>
-
                 <code class="text-blue-400 text-lg">
                     Kawaii pastel style
                 </code>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 6 -->
 <section id="slide6" class="slide hero-gradient items-center justify-center p-8">
-
     <div class="max-w-5xl mx-auto text-center">
-
         <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-8">
-
             <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
-
             <span class="text-sm text-orange-300">
                 Hands-On Session
             </span>
-
         </div>
 
         <h1 class="text-5xl lg:text-7xl font-black leading-tight">
-
             Bertindak Sekarang
-
             <span class="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
-
                 Mulakan Hands-On AI
-
             </span>
-
         </h1>
 
         <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
-
             Proses teknikal tidak lagi menjadi penghalang.
             Kini anda mempunyai pembantu rekaan visual AI yang pantas,
             tepat dan percuma.
-
         </p>
 
         <div class="mt-14 flex flex-wrap justify-center gap-5">
-
             <a href="https://notebooklm.google"
             target="_blank"
             class="px-10 py-5 rounded-2xl bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg hover:scale-105 transition shadow-2xl">
-
                 🚀 MULAKAN HANDS-ON NOTEBOOKLM
-
             </a>
 
             <a href="https://gemini.google.com"
             target="_blank"
             class="px-10 py-5 rounded-2xl glass font-bold text-lg hover:bg-white/10 transition">
-
                 ✨ BUKA GEMINI
-
             </a>
-
         </div>
 
         <div class="grid lg:grid-cols-3 gap-6 mt-16 text-left">
-
             <div class="glass rounded-3xl p-6">
-
                 <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl mb-5">
                     1
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Upload Dokumen
                 </h3>
-
                 <p class="text-slate-400">
                     PDF, Google Docs, Website atau YouTube.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-6">
-
                 <div class="w-14 h-14 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-400 text-2xl mb-5">
                     2
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Generate Visual
                 </h3>
-
                 <p class="text-slate-400">
                     Pilih infographic atau slide deck.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-6">
-
                 <div class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl mb-5">
                     3
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Export & Present
                 </h3>
-
                 <p class="text-slate-400">
                     Export ke PowerPoint dan terus bentang.
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 7 -->
 <section id="slide7" class="slide hero-gradient items-center justify-center p-8">
-
     <div class="max-w-6xl mx-auto text-center">
-
         <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-8">
-
             <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
-
             <span class="text-sm text-red-300">
                 TOPIK 2 • ETIKA & PRIVASI AI
             </span>
-
         </div>
 
         <h1 class="text-5xl lg:text-7xl font-black leading-tight">
-
             Etika &
             <span class="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-
                 Privasi AI
-
             </span>
-
         </h1>
 
         <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
-
             Penggunaan AI Secara Profesional,
             Selamat dan Bertanggungjawab
             Untuk Pekerja Pejabat.
-
         </p>
 
         <div class="mt-16 flex flex-wrap justify-center gap-5">
-
             <div class="glass rounded-3xl px-8 py-6">
-
                 <h3 class="text-2xl font-bold text-red-400">
                     Etika
                 </h3>
-
             </div>
-
             <div class="glass rounded-3xl px-8 py-6">
-
                 <h3 class="text-2xl font-bold text-orange-400">
                     Privasi
                 </h3>
-
             </div>
-
             <div class="glass rounded-3xl px-8 py-6">
-
                 <h3 class="text-2xl font-bold text-blue-400">
                     Keselamatan
                 </h3>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 8 -->
 <section id="slide8" class="slide items-center p-8">
-
     <div class="max-w-6xl mx-auto w-full">
-
         <h2 class="text-5xl font-black mb-6">
             Objektif Kursus
         </h2>
-
         <p class="text-slate-400 text-xl mb-12">
             Apa yang peserta akan pelajari dalam topik ini.
         </p>
 
         <div class="grid lg:grid-cols-2 gap-8">
-
             <div class="glass rounded-3xl p-8">
-
                 <div class="text-red-400 text-4xl mb-5">
                     <i class="fa-solid fa-scale-balanced"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Memahami Etika AI
                 </h3>
-
                 <p class="text-slate-400">
                     Prinsip penggunaan AI secara profesional dan bertanggungjawab.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <div class="text-orange-400 text-4xl mb-5">
                     <i class="fa-solid fa-user-shield"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Risiko Privasi Data
                 </h3>
-
                 <p class="text-slate-400">
                     Mengenal pasti risiko kebocoran maklumat dan data.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <div class="text-blue-400 text-4xl mb-5">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Keselamatan AI
                 </h3>
-
                 <p class="text-slate-400">
                     Cara menggunakan AI dengan lebih selamat.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <div class="text-teal-400 text-4xl mb-5">
                     <i class="fa-solid fa-circle-check"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Amalan Terbaik
                 </h3>
-
                 <p class="text-slate-400">
                     Penggunaan AI secara beretika di tempat kerja.
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 9 -->
 <section id="slide9" class="slide items-center p-8">
-
     <div class="max-w-6xl mx-auto w-full">
-
         <h2 class="text-5xl font-black mb-6">
             Risiko Penggunaan AI
         </h2>
-
         <p class="text-slate-400 text-xl mb-12">
             Risiko utama penggunaan AI di tempat kerja.
         </p>
 
         <div class="grid lg:grid-cols-2 gap-8">
-
             <div class="glass rounded-3xl p-8 border border-red-500/20">
-
                 <div class="text-red-400 text-4xl mb-5">
                     <i class="fa-solid fa-user-secret"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-4">
                     Data Sulit Bocor
                 </h3>
-
                 <p class="text-slate-400">
                     Maklumat organisasi atau pesakit boleh terdedah.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8 border border-orange-500/20">
-
                 <div class="text-orange-400 text-4xl mb-5">
                     <i class="fa-solid fa-circle-xmark"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-4">
                     Jawapan Tidak Tepat
                 </h3>
-
                 <p class="text-slate-400">
                     AI boleh memberikan maklumat yang salah.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8 border border-yellow-500/20">
-
                 <div class="text-yellow-400 text-4xl mb-5">
                     <i class="fa-solid fa-share-nodes"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-4">
                     Penyebaran Maklumat Palsu
                 </h3>
-
                 <p class="text-slate-400">
                     Risiko menyebarkan fakta tanpa semakan.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8 border border-purple-500/20">
-
                 <div class="text-purple-400 text-4xl mb-5">
                     <i class="fa-solid fa-brain"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-4">
                     Ketergantungan AI
                 </h3>
-
                 <p class="text-slate-400">
                     Pengguna terlalu bergantung kepada AI.
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 10 -->
 <section id="slide10" class="slide items-center p-8">
-
     <div class="max-w-5xl mx-auto w-full">
-
         <h2 class="text-5xl font-black mb-12">
             Etika Penggunaan AI
         </h2>
 
         <div class="space-y-8">
-
             <div class="glass rounded-3xl p-8 flex gap-6">
-
                 <div class="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400 text-2xl">
-
                     <i class="fa-solid fa-scale-balanced"></i>
-
                 </div>
-
                 <div>
-
                     <h3 class="text-2xl font-bold mb-3">
                         Gunakan AI Secara Jujur
                     </h3>
-
                     <p class="text-slate-400 text-lg">
                         Elakkan manipulasi dan penyalahgunaan maklumat.
                     </p>
-
                 </div>
-
             </div>
 
             <div class="glass rounded-3xl p-8 flex gap-6">
-
                 <div class="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl">
-
                     <i class="fa-solid fa-file-circle-check"></i>
-
                 </div>
-
                 <div>
-
                     <h3 class="text-2xl font-bold mb-3">
                         Semak Semua Hasil AI
                     </h3>
-
                     <p class="text-slate-400 text-lg">
                         Jangan terus percaya semua output AI.
                     </p>
-
                 </div>
-
             </div>
 
             <div class="glass rounded-3xl p-8 flex gap-6">
-
                 <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl">
-
                     <i class="fa-solid fa-lock"></i>
-
                 </div>
-
                 <div>
-
                     <h3 class="text-2xl font-bold mb-3">
                         Lindungi Privasi
                     </h3>
-
                     <p class="text-slate-400 text-lg">
                         Jangan masukkan data sensitif ke dalam AI.
                     </p>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 11 -->
 <section id="slide11" class="slide items-center p-8">
-
     <div class="max-w-6xl mx-auto w-full">
-
         <h2 class="text-5xl font-black mb-6">
             Privasi & Keselamatan Data
         </h2>
-
         <p class="text-slate-400 text-xl mb-12">
             Perkara penting yang wajib dijaga.
         </p>
 
         <div class="grid lg:grid-cols-2 gap-8">
-
             <div class="glass rounded-3xl p-8">
-
                 <div class="text-red-400 text-4xl mb-5">
                     <i class="fa-solid fa-user-secret"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Jangan Upload Data Sensitif
                 </h3>
-
                 <p class="text-slate-400">
                     Elakkan memasukkan data pesakit atau pelanggan.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <div class="text-blue-400 text-4xl mb-5">
                     <i class="fa-solid fa-building-shield"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Guna Akaun Rasmi
                 </h3>
-
                 <p class="text-slate-400">
                     Gunakan akaun organisasi yang sah.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <div class="text-orange-400 text-4xl mb-5">
                     <i class="fa-solid fa-file-shield"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Elak Kongsi Dokumen Sulit
                 </h3>
-
                 <p class="text-slate-400">
                     Pastikan dokumen organisasi dilindungi.
                 </p>
-
             </div>
 
             <div class="glass rounded-3xl p-8">
-
                 <div class="text-teal-400 text-4xl mb-5">
                     <i class="fa-solid fa-key"></i>
                 </div>
-
                 <h3 class="text-2xl font-bold mb-3">
                     Kata Laluan Selamat
                 </h3>
-
                 <p class="text-slate-400">
                     Gunakan password yang kuat dan unik.
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
+<!-- SLIDE 12 -->
 <section id="slide12" class="slide hero-gradient items-center justify-center p-8">
-
     <div class="max-w-5xl mx-auto text-center">
-
         <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-8">
-
             <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-
             <span class="text-sm text-green-300">
                 Kesimpulan
             </span>
-
         </div>
 
         <h1 class="text-5xl lg:text-7xl font-black leading-tight">
-
             Gunakan AI
             <span class="bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
-
                 Secara Selamat
-
             </span>
-
         </h1>
 
         <p class="mt-8 text-slate-300 text-lg lg:text-2xl max-w-4xl mx-auto leading-relaxed">
-
             AI memberi banyak manfaat,
             tetapi etika dan privasi
             mesti sentiasa dijaga.
-
         </p>
 
         <div class="mt-16 flex flex-wrap justify-center gap-6">
-
             <div class="glass rounded-3xl px-8 py-6">
-
                 <h3 class="text-2xl font-bold text-green-400">
                     Etika
                 </h3>
-
             </div>
 
             <div class="glass rounded-3xl px-8 py-6">
-
                 <h3 class="text-2xl font-bold text-blue-400">
                     Privasi
                 </h3>
-
             </div>
 
             <div class="glass rounded-3xl px-8 py-6">
-
                 <h3 class="text-2xl font-bold text-orange-400">
                     Keselamatan
                 </h3>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- SLIDE 13: Gemini & NotebookLM -->
+<section id="slide13" class="slide items-center p-8">
+    <div class="max-w-6xl mx-auto w-full">
+        <h2 class="text-5xl font-black mb-6">
+            Gemini & NotebookLM
+        </h2>
+        <p class="text-slate-400 text-xl mb-10">
+            Membezakan peranan dua alat AI utama dalam penghasilan infografik dan slaid.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="glass rounded-3xl p-8">
+                <div class="text-blue-400 text-4xl mb-5">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">
+                    Gemini: Idea & Teks
+                </h3>
+                <p class="text-slate-400">
+                    Jana tajuk, outline slaid, isi poin utama, skrip bercakap dan contoh kes.
+                    Sesuai untuk “brainstorming” dan menulis semula teks supaya lebih ringkas dan jelas.
+                </p>
             </div>
 
+            <div class="glass rounded-3xl p-8">
+                <div class="text-teal-400 text-4xl mb-5">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">
+                    NotebookLM: Analisis Dokumen
+                </h3>
+                <p class="text-slate-400">
+                    Upload PDF, polisi jabatan, artikel atau laporan.
+                    NotebookLM meringkaskan kandungan, mengenal pasti tema utama
+                    dan terus bina slide deck atau infografik daripada sumber tersebut.
+                </p>
+            </div>
+
+            <div class="glass rounded-3xl p-8 lg:col-span-2">
+                <div class="text-purple-400 text-4xl mb-5">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">
+                    Flow Kerja Gabungan
+                </h3>
+                <p class="text-slate-400">
+                    1) Gunakan NotebookLM untuk ringkaskan dokumen dan jana struktur slaid.
+                    2) Pindahkan ke Gemini untuk perkemas ayat dan tambah contoh.
+                    3) Import ke PowerPoint atau Google Slides untuk sentuhan akhir rekabentuk.
+                </p>
+            </div>
         </div>
-
     </div>
+</section>
 
+<!-- SLIDE 14: Latihan Praktikal -->
+<section id="slide14" class="slide items-center p-8">
+    <div class="max-w-6xl mx-auto w-full">
+        <h2 class="text-5xl font-black mb-6">
+            Latihan Praktikal
+        </h2>
+        <p class="text-slate-400 text-xl mb-10">
+            Aktiviti langkah demi langkah menggunakan dokumen sebenar peserta.
+        </p>
+
+        <div class="space-y-6">
+            <div class="glass rounded-3xl p-8 flex gap-6">
+                <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl font-black">
+                    1
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-3">
+                        Upload Dokumen Organisasi
+                    </h3>
+                    <p class="text-slate-400 text-lg">
+                        Peserta memilih satu dokumen yang tidak sensitif (contoh: poster kesihatan,
+                        garis panduan umum, notis pekeliling) dan upload ke NotebookLM.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass rounded-3xl p-8 flex gap-6">
+                <div class="w-16 h-16 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-400 text-2xl font-black">
+                    2
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-3">
+                        Jana Infografik & Slide Deck
+                    </h3>
+                    <p class="text-slate-400 text-lg">
+                        Peserta menggunakan template NotebookLM untuk menghasilkan infografik
+                        dan set slaid ringkas berdasarkan dokumen tersebut.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass rounded-3xl p-8 flex gap-6">
+                <div class="w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl font-black">
+                    3
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-3">
+                        Perkemas Dengan Gemini & PowerPoint
+                    </h3>
+                    <p class="text-slate-400 text-lg">
+                        Peserta menyalin teks slaid ke Gemini untuk dipendekkan, disusun semula atau diterjemah.
+                        Akhir sekali, slaid dieksport ke PowerPoint/Google Slides dan disesuaikan dengan identiti korporat jabatan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 15: Garis Panduan AI -->
+<section id="slide15" class="slide items-center p-8">
+    <div class="max-w-6xl mx-auto w-full">
+        <h2 class="text-5xl font-black mb-6">
+            Garis Panduan AI
+        </h2>
+        <p class="text-slate-400 text-xl mb-12">
+            Panduan ringkas penggunaan AI secara selamat, beretika dan mematuhi privasi.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="glass rounded-3xl p-8">
+                <div class="text-red-400 text-4xl mb-5">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">
+                    Elakkan Data Sensitif
+                </h3>
+                <p class="text-slate-400">
+                    Jangan masukkan nama penuh, nombor IC, MRN, nombor telefon atau apa-apa maklumat yang boleh mengenal pasti individu ke dalam sistem AI umum.
+                </p>
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+                <div class="text-blue-400 text-4xl mb-5">
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">
+                    Guna Platform Yang Diluluskan
+                </h3>
+                <p class="text-slate-400">
+                    Utamakan akaun rasmi organisasi dan aplikasi yang telah mendapat kelulusan pihak IT atau pengurusan sebelum digunakan dalam urusan rasmi.
+                </p>
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+                <div class="text-orange-400 text-4xl mb-5">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">
+                    Semak Semua Output AI
+                </h3>
+                <p class="text-slate-400">
+                    Jadikan AI sebagai pembantu, bukan pengganti.
+                    Semua fakta, angka dan kenyataan penting mesti disemak semula sebelum diedarkan kepada pesakit atau orang awam.
+                </p>
+            </div>
+
+            <div class="glass rounded-3xl p-8">
+                <div class="text-teal-400 text-4xl mb-5">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">
+                    Jelaskan Peranan Manusia
+                </h3>
+                <p class="text-slate-400">
+                    Tegaskan bahawa keputusan klinikal atau pentadbiran terakhir tetap dibuat oleh manusia yang bertanggungjawab, bukan oleh AI semata-mata.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
 
 </main>
 
 <script>
-
 function showSlide(slideId){
-
     // remove active slides
-
     document.querySelectorAll('.slide').forEach(slide=>{
         slide.classList.remove('active');
     });
-
     // show selected slide
-
     document.getElementById(slideId).classList.add('active');
 
     // remove active nav
-
     document.querySelectorAll('.nav-btn').forEach(btn=>{
         btn.classList.remove('active');
     });
 
     // activate desktop nav
-
     const desktopBtn=document.getElementById('btn-'+slideId);
-
     if(desktopBtn){
         desktopBtn.classList.add('active');
     }
 
     // activate mobile nav
-
     const mobileBtn=document.getElementById('mobile-btn-'+slideId);
-
     if(mobileBtn){
         mobileBtn.classList.add('active');
     }
 
     // close mobile menu
-
     if(window.innerWidth < 1024){
-
         document.getElementById('mobileMenu').classList.add('hidden');
-
         document.getElementById('overlay').classList.add('hidden');
-
     }
-
 }
 
 function toggleMobileMenu(){
-
     document.getElementById('mobileMenu').classList.toggle('hidden');
-
     document.getElementById('overlay').classList.toggle('hidden');
-
 }
-
 </script>
 
 </body>
